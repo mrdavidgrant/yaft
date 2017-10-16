@@ -8,7 +8,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
   def create
     user = User.find params[:user_id]
     session = user.sessions.new(session_params)
-    session.user_id = @user.id
+    session.user_id = user.id
 
     if session.save
       render json: { message: "successfully created session #{session[:id]}", session: session }
