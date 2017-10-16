@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:new, :create, :authenticate, :update]
+      resources :users, only: [] do
+        resources :sessions, only: [:show, :update, :create, :index, :destroy]
+      end
     end
   end
 

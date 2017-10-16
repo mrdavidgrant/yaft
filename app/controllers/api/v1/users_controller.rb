@@ -28,9 +28,9 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      render json: { message: "update successfull", user: @user }
+    user = User.find(params[:id])
+    if user.update_attributes(user_params) && user[:id] == @user[:id]
+      render json: { message: "update successfull", user: user }
     else
       render json: { errors: user.errors.full_messages }
     end
