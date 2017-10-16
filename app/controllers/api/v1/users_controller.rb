@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
-  skip_before_action :authenticate_request
+  skip_before_action :authenticate_request, only: [:authenticate, :create]
 
   def new
     user = User.new
@@ -7,6 +7,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def authenticate
     user = (params[:user])
+    puts "#{user[:email]}, #{user[:password]}"
     command = AuthenticateUser.call(user[:email], user[:password])
 
     if command.success?
@@ -20,16 +21,24 @@ class Api::V1::UsersController < Api::V1::BaseController
   def create
     user = User.new(user_params)
     if user.save
-      puts "user #{user.email} created, authenticating"
       authenticate
     else
       render json: { error: user.errors.full_messages }
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      render json: { message: "update successfull", user: @user }
+    else
+      render json: { errors: user.errors.full_messages }
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation, :password_digest)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
   end
 end
