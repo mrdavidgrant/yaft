@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  session_id: 1
+  motion: 1
+  reps: 1
+  weight: 1
+  rest: 1
+
+two:
+  session_id: 1
+  motion: 1
+  reps: 1
+  weight: 1
+  rest: 1

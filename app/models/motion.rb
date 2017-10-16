@@ -1,0 +1,2 @@
+class Motion < ApplicationRecord
+end
