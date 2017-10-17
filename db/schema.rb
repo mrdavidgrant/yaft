@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171017155058) do
     t.integer "rest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "equipment"
   end
 
   create_table "motions", force: :cascade do |t|
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 20171017155058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "body_part"
-    t.integer "equipment"
   end
 
   create_table "sessions", force: :cascade do |t|
