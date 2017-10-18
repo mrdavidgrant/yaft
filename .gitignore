@@ -14,3 +14,7 @@
 !/tmp/.keep
 
 .byebug_history
+node_modules
+npm-debug.log
+.DS_Store
+dist

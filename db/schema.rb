@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20171017155058) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "body_part"
+    t.integer "body_part_id"
   end
 
   create_table "sessions", force: :cascade do |t|
