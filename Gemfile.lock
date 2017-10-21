@@ -44,6 +44,7 @@ GEM
     byebug (9.1.0)
     concurrent-ruby (1.0.5)
     crass (1.0.2)
+    curb (0.9.4)
     dotenv (0.7.0)
     erubi (1.7.0)
     faker (1.8.4)
@@ -142,6 +143,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
+  curb
   dotenv
   faker
   foreman
