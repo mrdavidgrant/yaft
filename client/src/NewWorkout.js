@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
 
 const categories = [
-  "Arms",
-  "Legs",
-  "Back",
-  "Chest"
+  "arms",
+  "legs",
+  "back",
+  "chest",
+  "shoulders"
+];
+
+const motions = [
+  "armsMotions",
+  "legsMotions",
+  "backMotions",
+  "chestMotions",
+  "shouldersMotion"
 ];
 
 export default class NewWorkout extends Component {
@@ -13,31 +22,38 @@ export default class NewWorkout extends Component {
     this.state = {
       currentCategory: null
     }
-
   }
+
+  changeCateory () => {
+
+    case
+  </nav>
+  <section>
+    <ul class=''>
+      <li>
+      </li>
+    </ul>
+  </section>
+</div>
+}
+
   render() {
     return (
       <div>
         <nav>
           <ul>
-          { categories.map(c => {
-            return (
-              <li key={c}>
-                <button onClick={ this.changeCategory(this.props.currentCategory) }>
-                  { c }
-                </button>
-              </li>
-            )
-          }) }
+            { categories.map(c => {
+              return (
+                <li key={c}>
+                  <button onClick={(c) => this.changeCategory(c)}>
+                    { c }
+                  </button>
+                </li>
+              )
+            }) }
           </ul>
-        </nav>
-        <section>
-        </section>
-      </div>
+
     )
   }
 
-  changeCateory = (bodyParts) => {
-    if bodyParts == Arms
-    }
 }
