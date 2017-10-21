@@ -1,9 +1,6 @@
 class User < ApplicationRecord
-  has_secure_password
-
-  validates :email, presence: true, uniqueness: true
-  validates :username, uniqueness: true, allow_nil: true
-
-  has_many :sessions
+  self.primary_key = "user_id"
+  has_many :activities
+  has_one :token
 
 end
