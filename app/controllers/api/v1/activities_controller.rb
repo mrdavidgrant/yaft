@@ -1,4 +1,4 @@
-class Api::V1::ActivitiesController < Api:V1::BaseController
+class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
@@ -6,21 +6,30 @@ class Api::V1::ActivitiesController < Api:V1::BaseController
   end
 
   def create
+    puts "REQUEST HERE ==> #{params[:name]}"
     get_user
-    @activity = user.session.new name: request.body.name
+    @activity = @user.sessions.new name: params[:name]
+    if @user.save
+      render json: {message: "success", activity: @activity}
+    end
   end
 
   def show
     @activity = Session.find params[:id]
+    render json: {activity: @activity, liftsets: @activity.liftsets}
   end
 
   def update
     @activity = Session.find params[:id]
-    @update = request.body.session
+    @update = params[:liftsets]
     @update.each do |liftset|
-      set = @activity.liftset.create
+      set = @activity.liftsets.new
       set.update_attributes liftset
-      set.save
+    end
+    if @activity.save
+      render json: {message: "success", activity: @activity, liftsets: @activity.liftsets}
+    else
+      render json: {error: @activity.errors.full_messages}
     end
   end
 
