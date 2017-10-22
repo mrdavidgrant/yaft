@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     get_user
     ltoken = JsonWebToken.encode(user_id: @user.user_id)
     if @user.save
-      respond_with json: {auth_token: ltoken, user: @user}
+      render json: {auth_token: ltoken, user: @user}
     else
       render json: {errors: user.errors.full_messages}
     end
