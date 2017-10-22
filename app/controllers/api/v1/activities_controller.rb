@@ -2,11 +2,10 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
-    render json: @user.sessions
+    render json: {sessions: @user.sessions}
   end
 
   def create
-    puts "REQUEST HERE ==> #{params[:name]}"
     get_user
     @activity = @user.sessions.new name: params[:name]
     if @user.save
