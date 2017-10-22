@@ -1,24 +1,25 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_request
 
   def new
     redirect_to "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22CJ8J&redirect_uri=#{ENV['URL_PATH']}/auth/fitbit/callback&scope=activity%20heartrate%20profile%20weight&expires_in=604800"
   end
 
   def create
-    get_token
-    update_user
+    new_token
+    get_user
+    ltoken = JsonWebToken.encode(user_id: @user.user_id)
     if @user.save
-      response.headers['Authorization'] = "Bearer #{@user.token[:access_token]}"
-      render json: {message: "success", user: @user}
+      respond_with json: {auth_token: ltoken, user: @user}
     else
-      render json: {errors: token.errors.full_messages}
+      render json: {errors: user.errors.full_messages}
     end
   end
 
 
   private
 
-  def get_token
+  def new_token
     t = Curl::Easy.http_post("https://api.fitbit.com/oauth2/token",
     Curl::PostField.content('client_id','22CJ8J'),
     Curl::PostField.content('grant_type', 'authorization_code'),
@@ -33,12 +34,11 @@ class SessionsController < ApplicationController
     @user.token.update_attributes ftoken
   end
 
-  def update_user
+  def get_user
     u = Curl::Easy.perform("https://api.fitbit.com/1/user/-/profile.json") do |curl|
       curl.headers["Authorization"] = "Bearer #{@user.token[:access_token]}"
     end
     fuser = JSON.parse(u.body)["user"]
-    puts fuser
     @user.age = fuser["age"]
     @user.avatar = fuser["avatar"]
     @user.display_name = fuser["displayName"]
