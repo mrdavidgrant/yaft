@@ -8,13 +8,6 @@ const categories = [
   "shoulders"
 ];
 
-const motions = [
-  "armsMotions",
-  "legsMotions",
-  "backMotions",
-  "chestMotions",
-  "shouldersMotion"
-];
 
 export default class NewWorkout extends Component {
   constructor(props){
@@ -23,19 +16,6 @@ export default class NewWorkout extends Component {
       currentCategory: null
     }
   }
-
-  changeCateory () => {
-
-    case
-  </nav>
-  <section>
-    <ul class=''>
-      <li>
-      </li>
-    </ul>
-  </section>
-</div>
-}
 
   render() {
     return (
@@ -52,6 +32,8 @@ export default class NewWorkout extends Component {
               )
             }) }
           </ul>
+        </nav>
+      </div>
 
     )
   }
