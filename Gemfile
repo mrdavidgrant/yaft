@@ -23,6 +23,7 @@ gem 'responders'
 gem 'simple_command'
 gem 'foreman'
 gem 'dotenv'
+gem 'curb'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

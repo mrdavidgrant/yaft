@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'login', to: 'api/v1/users#authenticate', as: 'authenticate'
+  get 'login', to: 'sessions#new', as: 'login'
+  get '/auth/:provider/callback', to: 'sessions#create'
 
 
 end
