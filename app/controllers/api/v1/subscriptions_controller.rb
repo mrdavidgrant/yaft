@@ -38,14 +38,18 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
       hr = Curl::Easy.perform("https://api.fitbit.com/1/user/#{@updateUser[:user_id]}/activities/heart/date/#{date}/#{date}/1sec/time/#{start}/#{finish}.json") do |curl|
         curl.headers["Authorization"] = "Bearer #{@updateUser.token[:access_token]}"
       end
-      puts JSON.parse(hr.body)
-      data = JSON.parse(hr.body)["activities-heart-intraday"]["dataset"]
-      puts data
-      activity[:heartrate] = data
-      if activity.save
-        puts "saved successfully"
+      if JSON.parse(hr.body)["errors"].present?
+        render json: hr.body
       else
-        puts activity.errors.full_messages
+        puts JSON.parse(hr.body)
+        data = JSON.parse(hr.body)["activities-heart-intraday"]["dataset"]
+        puts data
+        activity[:heartrate] = data
+        if activity.save
+          puts "saved successfully"
+        else
+          puts activity.errors.full_messages
+        end
       end
     end
   end
@@ -61,12 +65,16 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
       cal = Curl::Easy.perform("https://api.fitbit.com/1/user/#{@updateUser[:user_id]}/activities/calories/date/#{date}/#{date}/1min/time/#{start}/#{finish}.json") do |curl|
         curl.headers["Authorization"] = "Bearer #{@updateUser.token[:access_token]}"
       end
-      data = JSON.parse(cal.body)["activities-calories-intraday"]["dataset"]
-      activity[:calories] = data
-      if activity.save
-        puts "saved successfully"
+      if JSON.parse(cal.body)["errors"].present?
+        render json: cal.body
       else
-        puts activity.errors.full_messages
+        data = JSON.parse(cal.body)["activities-calories-intraday"]["dataset"]
+        activity[:calories] = data
+        if activity.save
+          puts "saved successfully"
+        else
+          puts activity.errors.full_messages
+        end
       end
     end
   end
