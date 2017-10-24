@@ -21,7 +21,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   def update
     @activity = Session.find params[:id]
     @activity[:completed_at] = Date.now
-    if params[:liftsets].exist
+    if params[:liftsets].exists?
       @update = params[:liftsets]
       @update.each do |liftset|
         set = @activity.liftsets.new
