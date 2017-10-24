@@ -41,7 +41,11 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   private
 
   def get_user
+
     @user = User.find params[:user_user_id]
+  # if @user
+  # else
+  #   render json: @user.errors.full_messages
   end
 
 end
