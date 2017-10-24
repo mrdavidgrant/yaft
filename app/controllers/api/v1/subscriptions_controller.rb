@@ -66,7 +66,7 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
         curl.headers["Authorization"] = "Bearer #{@updateUser.token[:access_token]}"
       end
       if JSON.parse(cal.body)["errors"].present?
-        render json: cal.body
+        puts cal.body
       else
         data = JSON.parse(cal.body)["activities-calories-intraday"]["dataset"]
         activity[:calories] = data
