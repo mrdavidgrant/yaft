@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './appStyles/logo.svg';
+import './appStyles/App.css';
 import NewWorkout from './components/NewWorkout';
 
 
@@ -10,12 +10,12 @@ class App extends Component {
 
       <div className="App">
 
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">YOOOOOOO</h1>
-      </header>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">YOOOOOOO</h1>
+        </header>
 
-      <NewWorkout />
+        <NewWorkout />
       </div>
 
     );

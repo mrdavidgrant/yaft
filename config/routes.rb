@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   post 'login', to: 'api/v1/users#authenticate', as: 'authenticate'
 
+  get '/body-parts/:id', to: 'api/v1/body_parts#index'
+
 
 end
