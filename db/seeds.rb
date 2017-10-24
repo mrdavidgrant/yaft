@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do
-  User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, username: Faker::Internet.user_name, password_digest: Faker::Internet.password)
-end
-
 Equipment.create(name: 'Atlas Machine')
 Equipment.create(name: 'Barbell')
 Equipment.create(name: 'Dumbell')
@@ -47,7 +43,7 @@ back.motions.create([{
 
 legs.motions.create([{
   name: 'Squat'
-},{ 
+},{
   name: 'Leg Extension'
 },{
   name: 'Leg Curl'
@@ -82,3 +78,13 @@ shoulders.motions.create([{
 },{
   name: 'Upright Row'
 }])
+
+@testy = User.create(display_name: 'testy', user_id: 'x12y45')
+
+3.times do
+  @session = @testy.sessions.new(name: "weights")
+  12.times do
+    @session.liftsets.new(motion: Faker::Number.between(1,26), reps: Faker::Number.between(1,15), weight: (Faker::Number.between(1,30)*5), rest: Faker::Number.between(30,270), equipment: Faker::Number.between(1,4))
+  end
+  @session.save
+end

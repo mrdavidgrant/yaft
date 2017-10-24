@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017155058) do
+ActiveRecord::Schema.define(version: 20171022204257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20171017155058) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "equipment"
+    t.datetime "started"
+    t.datetime "stopped"
   end
 
   create_table "motions", force: :cascade do |t|
@@ -46,20 +48,38 @@ ActiveRecord::Schema.define(version: 20171017155058) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "user_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "access_token"
+    t.string "refresh_token"
+    t.string "scope"
+    t.string "token_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "expires_in"
+    t.string "user_id", null: false
+    t.index ["user_id"], name: "index_tokens_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "user_id", null: false
+    t.integer "age"
+    t.string "avatar"
+    t.string "dob"
+    t.string "display_name"
     t.string "first_name"
+    t.string "full_name"
+    t.string "gender"
+    t.integer "height_cm"
     t.string "last_name"
-    t.string "email"
-    t.string "username"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "weight_kg"
+    t.json "other"
+    t.index ["user_id"], name: "index_users_on_user_id", unique: true
   end
 
 end
