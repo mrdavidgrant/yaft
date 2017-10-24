@@ -79,7 +79,7 @@ shoulders.motions.create([{
   name: 'Upright Row'
 }])
 
-@testy = User.create(display_name: 'testy', user_id: 'x12y45', age: 30, avatar: Faker::Avatar.image, dob: Faker::Date.birthday, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, full_name: Faker::Name.name, gender: 'MALE', height_cm: 188, weight_kg: 95)
+@testy = User.create(display_name: 'testy', user_id: 'x12y45', age: 30, avatar: "https://www.google.ca/search?q=goat+images&tbm=isch&source=iu&pf=m&ictx=1&fir=wOR7KhXm535IVM%253A%252CV3u8W2mI8xFwuM%252C_&usg=__zdej8q9H8OGU98r9siOyKuHccAM%3D&sa=X&ved=0ahUKEwig6_bHqIrXAhVjwYMKHX2XACwQ9QEIKDAA#imgrc=wOR7KhXm535IVM:", dob: "Date here", first_name: "Test", last_name: "McTesterson", full_name: "Test McTesterson", gender: 'MALE', height_cm: 188, weight_kg: 95)
 
 3.times do
   @session = @testy.sessions.new(name: "weights")
