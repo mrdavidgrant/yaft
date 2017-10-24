@@ -18,6 +18,7 @@ const motions = [
   'shouldersMotions'
 ]
 
+<<<<<<< HEAD
 const settings = [
   'armsSettings',
   'legsSettings',
@@ -26,12 +27,15 @@ const settings = [
   'shoulderSettings'
 ]
 
+=======
+>>>>>>> develop
 export default class NewWorkout extends Component {
   constructor(props){
     super(props);
     this.state = {
       currentCategory: null,
     }
+<<<<<<< HEAD
     this.changeMotions = this.changeMotions.bind(this);
   }
   // componentDidMount(){
@@ -46,18 +50,43 @@ export default class NewWorkout extends Component {
   }
   changeSetting(category){
     this.setState({ currentCategory: category})
+=======
+    this.changeCategory = this.changeCategory.bind(this);
+  }
+
+  componentDidMount(){
+      fetch('http://localhost:3000/body-parts/:id')
+      .then(res => res.json())
+      .then(value => {
+        const
+        this.setState({})
+      })
+
+      }
+  }
+
+  changeCategory(category) {
+    this.setState({ currentCategory: category })
+>>>>>>> develop
   }
 
   render() {
     return (
       <div>
         <nav>
+<<<<<<< HEAD
           <h1>Area of Focus</h1>
+=======
+>>>>>>> develop
           <ul>
             { categories.map((category, idx) => {
               return (
                 <li key={idx}>
+<<<<<<< HEAD
                   <button onClick={() => this.changeMotions(category)}>
+=======
+                  <button onClick={() => this.changeCategory(category)}>
+>>>>>>> develop
                     { category }
                   </button>
                 </li>
@@ -65,6 +94,7 @@ export default class NewWorkout extends Component {
             }) }
           </ul>
         </nav>
+<<<<<<< HEAD
         <h2>Activities</h2>
         <button onClick={() => this.changeSetting(settings)}>
           { this.state.currentCategory !== null &&
@@ -76,6 +106,15 @@ export default class NewWorkout extends Component {
           <div>{this.state.currentCategory}</div>
         }
       </div>
+=======
+        { this.state.currentCategory !== null &&
+          <div>{this.state.currentCategory}</div>
+        }
+
+      </div>
+
+
+>>>>>>> develop
     )
   }
 
