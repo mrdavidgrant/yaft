@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     new_token
     get_user
-    ltoken = JsonWebToken.encode(user_id: @user.user_id)
+    ltoken = jwt_encode(user_id: @user.user_id)
     if @user.save
       render json: {auth_token: ltoken, user: @user}
     else
