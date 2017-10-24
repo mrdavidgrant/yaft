@@ -24,6 +24,7 @@ gem 'simple_command'
 gem 'foreman'
 gem 'dotenv'
 gem 'curb'
+gem 'rails_12factor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
