@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     else
       render json: {errors: user.errors.full_messages}
     end
+    create_subscription
   end
 
 
@@ -51,6 +52,12 @@ class SessionsController < ApplicationController
     @user.weight_kg = fuser["weight"]
     @user.save
 
+  end
+
+  def create_subscription
+    s = Curl::Easy.http_post("https://api.fitbit.com/1/user/-/activities/apiSubscriptions/#{@user[:user_id]}.json") do |curl|
+      curl.headers["Authorization"] = "Bearer #{@user.token[:access_token]}"
+    end
   end
 
 end
