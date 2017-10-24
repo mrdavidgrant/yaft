@@ -20,3 +20,4 @@ npm-debug.log
 dist
 ngrok
 .env
+database.yml
