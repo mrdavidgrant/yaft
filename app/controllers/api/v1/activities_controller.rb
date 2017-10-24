@@ -20,7 +20,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def update
     @activity = Session.find params[:id]
-    @activity[:completed_at] = Date.now
+    @activity[:completed_at] = DateTime.now
     if params[:liftsets].exists?
       @update = params[:liftsets]
       @update.each do |liftset|
