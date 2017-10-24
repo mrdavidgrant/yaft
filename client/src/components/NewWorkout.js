@@ -18,34 +18,46 @@ const motions = [
   'shouldersMotions'
 ]
 
+const settings = [
+  'armsSettings',
+  'legsSettings',
+  'backSettings',
+  'chestSettings',
+  'shoulderSettings'
+]
+
 export default class NewWorkout extends Component {
   constructor(props){
     super(props);
     this.state = {
       currentCategory: null,
     }
-    this.changeCategory = this.changeCategory.bind(this);
+    this.changeMotions = this.changeMotions.bind(this);
   }
+  // componentDidMount(){
+  //     fetch('http://localhost:3000/body-parts/1')
+  //     .then(res => res.json())
+  //     .then(value => {
+  //
+  //     })
 
-  componentDidMount(){
-      fetch(motionsData){
-        
-      }
+  changeMotions(motion) {
+    this.setState({ currentCategory: motion })
   }
-
-  changeCategory(category) {
-    this.setState({ currentCategory: category })
+  changeSetting(category){
+    this.setState({ currentCategory: category})
   }
 
   render() {
     return (
       <div>
         <nav>
+          <h1>Area of Focus</h1>
           <ul>
             { categories.map((category, idx) => {
               return (
                 <li key={idx}>
-                  <button onClick={() => this.changeCategory(category)}>
+                  <button onClick={() => this.changeMotions(category)}>
                     { category }
                   </button>
                 </li>
@@ -53,12 +65,17 @@ export default class NewWorkout extends Component {
             }) }
           </ul>
         </nav>
+        <h2>Activities</h2>
+        <button onClick={() => this.changeSetting(settings)}>
+          { this.state.currentCategory !== null &&
+            <div>{this.state.currentCategory}</div>
+          }
+        </button>
+        <h3>Settings</h3>
         { this.state.currentCategory !== null &&
           <div>{this.state.currentCategory}</div>
         }
       </div>
-
-
     )
   }
 
