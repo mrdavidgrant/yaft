@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar.js';
 import Exerciselog from '../components/Exerciselog.js';
 import ProfileContainer from './ProfileContainer.js';
 import Eachsession from '../components/Eachsession.js';
-// import Startsession from '../components/Startsession.js';
+import Startsession from '../components/Startsession.js';
 
 // import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -43,11 +43,11 @@ class App extends Component {
       <Router>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="appContainer">
-            <Route direct path='/' component={Navbar}/>
-            <Route path='/users/:user_id/sessions' component={Exerciselog} />
-            <Route path='/users/:user_id' component={ProfileContainer} />
-            <Route path='/users/:user_id/sessions/:session_id' component={Eachsession} />
-            {/* <Route path='/users/:user_id/sessions/new' component={Startsession} />  */}
+            <Route path='/' component={Navbar}/>
+            <Route exact path='/users/:user_id/sessions' component={Exerciselog} />
+            <Route exact path='/users/:user_id' component={ProfileContainer} />
+            <Route exact path='/users/:user_id/sessions/:session_id' component={Eachsession} />
+            <Route exact path='/users/:user_id/sessions/:session_id/new' component={Startsession} /> 
           </div>
         </MuiThemeProvider>
       </Router>
