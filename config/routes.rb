@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new', as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
-
+  get '/favicon.ico', to: 'application#null_response'
 
 end

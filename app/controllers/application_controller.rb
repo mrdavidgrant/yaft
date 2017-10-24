@@ -3,6 +3,10 @@ class ApplicationController < ActionController::API
   respond_to :json
   attr_reader :current_user
 
+  def null_response
+    render status: 401
+  end
+
   private
 
   def authenticate_request
