@@ -5,7 +5,7 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
     puts params
     if params[:verify].present?
       verification = params[:verify]
-      if verification == '4ffcd6af896282089765587454657fa7688dbf4edb43719bb5e268368bfd4c59'
+      if verification == '68ffde8f767e49f4a6e6f99ff7efa93c5664cfe954e8d368701ebe08bd3cadb3'
         render body: nil, :status => 204
       else
         render body: nil, :status => 404
