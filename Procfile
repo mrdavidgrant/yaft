@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-web: sh -c 'cd ./client && npm start'
-api: bundle exec rails s -p 3001 -b 0.0.0.0
-=======
 web: sh -c 'cd client && npm start'
 api: bundle exec rails s -p 3001 -b 0.0.0.0
->>>>>>> develop

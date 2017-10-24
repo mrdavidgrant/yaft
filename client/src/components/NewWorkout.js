@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const motionsData = '/body-parts/:id'
+
 
 const categories = [
   "arms",
@@ -18,25 +18,22 @@ const motions = [
   'shouldersMotions'
 ]
 
-<<<<<<< HEAD
 const settings = [
   'armsSettings',
   'legsSettings',
   'backSettings',
   'chestSettings',
-  'shoulderSettings'
+  'shouldersSettings'
 ]
 
-=======
->>>>>>> develop
 export default class NewWorkout extends Component {
   constructor(props){
     super(props);
     this.state = {
       currentCategory: null,
     }
-<<<<<<< HEAD
     this.changeMotions = this.changeMotions.bind(this);
+    this.changeSettings = this.changeSettings.bind(this);
   }
   // componentDidMount(){
   //     fetch('http://localhost:3000/body-parts/1')
@@ -48,45 +45,20 @@ export default class NewWorkout extends Component {
   changeMotions(motion) {
     this.setState({ currentCategory: motion })
   }
-  changeSetting(category){
-    this.setState({ currentCategory: category})
-=======
-    this.changeCategory = this.changeCategory.bind(this);
-  }
-
-  componentDidMount(){
-      fetch('http://localhost:3000/body-parts/:id')
-      .then(res => res.json())
-      .then(value => {
-        const
-        this.setState({})
-      })
-
-      }
-  }
-
-  changeCategory(category) {
-    this.setState({ currentCategory: category })
->>>>>>> develop
+  changeSettings(setting){
+    this.setState({ currentCategory: setting})
   }
 
   render() {
     return (
       <div>
         <nav>
-<<<<<<< HEAD
           <h1>Area of Focus</h1>
-=======
->>>>>>> develop
           <ul>
             { categories.map((category, idx) => {
               return (
                 <li key={idx}>
-<<<<<<< HEAD
                   <button onClick={() => this.changeMotions(category)}>
-=======
-                  <button onClick={() => this.changeCategory(category)}>
->>>>>>> develop
                     { category }
                   </button>
                 </li>
@@ -94,27 +66,29 @@ export default class NewWorkout extends Component {
             }) }
           </ul>
         </nav>
-<<<<<<< HEAD
         <h2>Activities</h2>
-        <button onClick={() => this.changeSetting(settings)}>
-          { this.state.currentCategory !== null &&
-            <div>{this.state.currentCategory}</div>
-          }
-        </button>
+        <ul>
+          { motions.filter((motion) => { return motion.includes(this.state.currentCategory) }).map((motion, idx) => {
+            return (
+              <li key={idx}>
+                <button >
+                  { motion }
+                </button>
+              </li>
+            )
+          }) }
+        </ul>
         <h3>Settings</h3>
-        { this.state.currentCategory !== null &&
-          <div>{this.state.currentCategory}</div>
-        }
+        <ul>
+          { settings.filter((setting) => { return setting.includes(this.state.currentCategory) }).map((setting, idx) => {
+            return (
+              <li key={idx}>
+                  { setting }
+              </li>
+            )
+          }) }
+        </ul>
       </div>
-=======
-        { this.state.currentCategory !== null &&
-          <div>{this.state.currentCategory}</div>
-        }
-
-      </div>
-
-
->>>>>>> develop
     )
   }
 
