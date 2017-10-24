@@ -20,10 +20,13 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def update
     @activity = Session.find params[:id]
-    @update = params[:liftsets]
-    @update.each do |liftset|
-      set = @activity.liftsets.new
-      set.update_attributes liftset
+    @activity[:completed_at] = Date.now
+    if params[:liftsets].exist
+      @update = params[:liftsets]
+      @update.each do |liftset|
+        set = @activity.liftsets.new
+        set.update_attributes liftset
+      end
     end
     if @activity.save
       render json: {message: "success", activity: @activity, liftsets: @activity.liftsets}
