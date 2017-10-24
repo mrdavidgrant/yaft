@@ -47,7 +47,7 @@ back.motions.create([{
 
 legs.motions.create([{
   name: 'Squat'
-},{
+},{ 
   name: 'Leg Extension'
 },{
   name: 'Leg Curl'
