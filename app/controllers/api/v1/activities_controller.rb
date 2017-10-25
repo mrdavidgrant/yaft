@@ -8,8 +8,15 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def create
     get_user
-    @activity = @user.sessions.new name: params[:name]
-    @user.sessions.update_attributes
+    @activity = @user.sessions.new name: post_params[:name]
+    @user.sessions.update_attributes post_params[:session]
+    if post_params[:liftsets].present?
+      @update = post_params[:liftsets]
+      @update.each do |liftset|
+        set = @template.liftsets.new
+        set.update_attributes liftset
+      end
+    end
     if @user.save
       render json: {message: "success", activity: @activity}
     end

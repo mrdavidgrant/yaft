@@ -9,8 +9,8 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def create
       get_user
       @template = @user.sessions.new name: post_params[:name]
+      @user.sessions.update_attributes post_params[:session]
       @template[:template] = true
-      # puts post_params
       if post_params[:liftsets].present?
         @update = post_params[:liftsets]
         @update.each do |liftset|
