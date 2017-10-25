@@ -12,7 +12,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     if post_params[:liftsets].present?
       @update = post_params[:liftsets]
       @update.each do |liftset|
-        set = @template.liftsets.new
+        set = @activity.liftsets.new
         set.update_attributes liftset
       end
     end
