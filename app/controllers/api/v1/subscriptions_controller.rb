@@ -30,7 +30,7 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   end
 
   def getHeartRate(update)
-    @activities = @updateUser.sessions.where([heartrate.empty? = ? and template = ?, true, false]).order(completed_at: :desc)
+    @activities = @updateUser.sessions.where(["heartrate.empty? = ? and template = ?", true, false]).order(completed_at: :desc)
     @activities.each do |activity|
       date = activity.created_at.strftime("%Y-%m-%d")
       start = activity.created_at.strftime("%H:%M:%S")
@@ -57,7 +57,7 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   # https://api.fitbit.com/1/user/-/activities/calories/date/today/today/1min/time/12%3A00%3A00/12%3A39%3A00.json
 
   def getCalories(update)
-    @activities = @updateUser.sessions.where([calories.empty? = ? and template = ?, true, false]).order(completed_at: :desc)
+    @activities = @updateUser.sessions.where(["calories.empty? = ? and template = ?", true, false]).order(completed_at: :desc)
     @activities.each do |activity|
       date = activity.created_at.strftime("%Y-%m-%d")
       start = activity.created_at.strftime("%H:%M:%S")
