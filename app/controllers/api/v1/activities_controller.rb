@@ -2,7 +2,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
-    activities = @user.sessions.where.not template?: true
+    activities = @user.sessions.where template?: false
     render json: {sessions: @user.sessions}
   end
 
