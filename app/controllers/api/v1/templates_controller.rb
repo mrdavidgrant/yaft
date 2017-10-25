@@ -3,7 +3,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def index
       get_user
       templates = @user.sessions.where template: true
-      render json: {session: templates templates: templates.liftsets}
+      render json: {session: templates, templates: templates.liftsets}
     end
 
     def create
