@@ -54,7 +54,7 @@ class Profile extends Component {
       dOfB: user.dob ? user.dob : 'Date of Birth',
       gender: user.gender ? user.gender : 'Gender',
       height: user.height_cm ? user.height_cm : 'Height',
-      Weight: user.weight_kg ? user.weight_kg : 'Weight',
+      weight: user.weight_kg ? user.weight_kg : 'Weight',
       img: user.avatar ? user.avatar : img
 
     }
@@ -99,13 +99,9 @@ class Profile extends Component {
             </div>
 
             <div className="bottomContainer">
-              <TextField
-                floatingLabelText={userInfo.email}
-                style={{marginRight: '30px'}}
-              />
               <DatePicker
                   dialogContainerStyle={datePickerStyle}
-                  hintText="Date of Birth"
+                  hintText={userInfo.dOfB}
                   openToYearSelection={true}
               /><br/>
               <SelectField
@@ -118,16 +114,16 @@ class Profile extends Component {
               </SelectField> <br />
               <div className="height">
               <TextField
-                floatingLabelText="Height"
+                floatingLabelText={userInfo.height}
                 style={{marginRight: '30px'}}
               />
               <span className="suffix">cm</span> 
               </div>
               <div className="weight">
                 <TextField
-                  floatingLabelText="Weight"
+                  floatingLabelText={userInfo.weight}
                 />
-                <span className="suffix">lbs</span> 
+                <span className="suffix">kg</span> 
               </div>
               <br />
             </div>
