@@ -30,7 +30,7 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   end
 
   def getHeartRate(update)
-    @activities = @updateUser.sessions.where(heartrate.blank?).where(template: false).order(completed_at: :desc)
+    @activities = @updateUser.sessions.where(heartrate: nil).where(template: false).order(completed_at: :desc)
     @activities.each do |activity|
       date = activity.created_at.strftime("%Y-%m-%d")
       start = activity.created_at.strftime("%H:%M:%S")
