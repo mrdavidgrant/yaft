@@ -9,8 +9,15 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def create
       get_user
       @template = @user.sessions.new name: params[:name]
-      @user.sessions.template = true
+      @user.sessions[:template] = true
       @user.sessions.update_attributes
+      if params[:liftsets].present?
+        @update = params[:liftsets]
+        @update.each do |liftset|
+          set = @template.liftsets.new
+          set.update_attributes liftset
+        end
+      end
       if @user.save
         render json: {message: "success", template: @template}
       end
