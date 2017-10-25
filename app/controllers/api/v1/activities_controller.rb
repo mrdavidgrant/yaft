@@ -9,6 +9,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   def create
     get_user
     @activity = @user.sessions.new name: post_params[:name]
+    @activity.update_attributes post_params.except(:liftsets)
     if post_params[:liftsets].present?
       @update = post_params[:liftsets]
       @update.each do |liftset|
@@ -61,7 +62,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def post_params
-    params.require(:session).permit(:name, :user_id, :liftsets => [:session_id, :equipment, :rest, :reps, :weight, :motion])
+    params.require(:session).permit(:name, :user_id, :completed_at, :liftsets => [:session_id, :equipment, :rest, :reps, :weight, :motion])
   end
 
 end
