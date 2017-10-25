@@ -43,7 +43,6 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
       else
         puts JSON.parse(hr.body)
         data = JSON.parse(hr.body)["activities-heart-intraday"]["dataset"]
-        puts data
         activity[:heartrate] = data
         if activity.save
           puts "saved successfully"
