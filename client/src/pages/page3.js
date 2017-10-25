@@ -4,10 +4,11 @@ import Exerciselog from '../components/Exerciselog.js';
 
 class Page3 extends Component {
     render() {
+        const userId = this.props.match.params.user_id
         return (
             <div>
                 <Navbar />
-                <Exerciselog  />
+                <Exerciselog userId={userId} />
             </div>
         )
     }

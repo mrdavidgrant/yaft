@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Calendar from './Calendar.js';
+import CalendarContainer from '../containers/CalendarContainer.js';
+
 
 
 class Exerciselog extends Component {
     render() {
         return (
             <main className="sessionHistory">
-                <Calendar />
+                <CalendarContainer userId={this.props.userId} />
             </main> 
         )
     }

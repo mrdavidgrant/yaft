@@ -55,8 +55,8 @@ class Profile extends Component {
       gender: user.gender ? user.gender : 'Gender',
       height: user.height_cm ? user.height_cm : 'Height',
       weight: user.weight_kg ? user.weight_kg : 'Weight',
-      img: user.avatar ? user.avatar : img
-
+      img: user.avatar ? user.avatar : img,
+      userId: user.user_id
     }
 
     return (
@@ -134,7 +134,15 @@ class Profile extends Component {
               primary={false} 
               backgroundColor='#EE773E' 
               labelColor='#fff' 
-              style={buttonStyle} 
+              style={buttonStyle}
+          />
+          <RaisedButton 
+              label="View Workout History" 
+              primary={false} 
+              backgroundColor='#EE773E' 
+              labelColor='#fff' 
+              style={buttonStyle}
+              href={`/users/${userInfo.userId}/sessions`}
           />
       </div>
     )
