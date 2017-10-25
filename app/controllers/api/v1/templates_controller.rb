@@ -3,7 +3,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def index
       get_user
       templates = @user.sessions.where template: true
-      render json: {sessions: templates}
+      render json: {session: templates templates: templates.liftsets}
     end
 
     def create
@@ -30,7 +30,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def update
       @template = Session.find params[:id]
       @template[:completed_at] = DateTime.now
-      if params[:liftset].present?
+      if params[:liftsets].present?
         @update = params[:liftsets]
         @update.each do |liftset|
           set = @template.liftsets.new
@@ -61,7 +61,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     end
 
     def post_params
-      params.require(:session).permit(:name, :user_id, :liftset => [:session_id, :equipment, :rest, :reps, :weight, :motion])
+      params.require(:session).permit(:name, :user_id, :liftsets => [:session_id, :equipment, :rest, :reps, :weight, :motion])
     end
 
   end
