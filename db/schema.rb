@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171025144525) do
     t.datetime "completed_at"
     t.text "heartrate"
     t.text "calories"
-    t.boolean "template?", default: false
+    t.boolean "template", default: false
   end
 
   create_table "tokens", force: :cascade do |t|

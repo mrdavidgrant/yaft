@@ -2,14 +2,14 @@ class Api::V1::TemplatesController < Api::V1::BaseController
 
     def index
       get_user
-      templates = @user.sessions.where template?: true
+      templates = @user.sessions.where template: true
       render json: {sessions: @user.sessions}
     end
 
     def create
       get_user
       @template = @user.sessions.new name: params[:name]
-      @user.sessions.template?.toggle
+      @user.sessions.template = true
       @user.sessions.update_attributes
       if @user.save
         render json: {message: "success", template: @template}
