@@ -10,7 +10,6 @@ class Api::V1::TemplatesController < Api::V1::BaseController
       get_user
       @template = @user.sessions.new name: params[:name]
       @template[:template] = true
-      @template.update_attributes
       if params[:liftsets].present?
         @update = params[:liftsets]
         @update.each do |liftset|
