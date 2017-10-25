@@ -30,11 +30,11 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     def update
       @template = Session.find params[:id]
       @template[:completed_at] = DateTime.now
-      if params[:liftsets].present?
-        @update = params[:liftsets]
+      if post_params[:liftsets].present?
+        @update = post_params[:liftsets]
         @update.each do |liftset|
           set = @template.liftsets.new
-          set.update_attributes post_params
+          set.update_attributes liftset
         end
       end
       if @template.save
@@ -61,7 +61,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
     end
 
     def post_params
-      params.require(:session).permit(:name, :user_id, :liftsets => [:session_id, :equipment, :rest, :reps, :weight, :motion])
+      params.require(:session).permit(:name, :user_id, liftsets: [:session_id, :equipment, :rest, :reps, :weight, :motion])
     end
 
   end
