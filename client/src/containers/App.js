@@ -4,11 +4,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // components
 import '../styles/App.css';
-import Navbar from '../components/Navbar.js';
-import Exerciselog from '../components/Exerciselog.js';
-import ProfileContainer from './ProfileContainer.js';
-import Eachsession from '../components/Eachsession.js';
-import Startsession from '../components/Startsession.js';
+import Page1 from '../pages/page1.js';
+import Page2 from '../pages/page2.js';
+import Page3 from '../pages/page3.js';
 
 // import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -43,11 +41,9 @@ class App extends Component {
       <Router>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div className="appContainer">
-            <Route path='/' component={Navbar}/>
-            <Route exact path='/users/:user_id/sessions' component={Exerciselog} />
-            <Route exact path='/users/:user_id' component={ProfileContainer} />
-            <Route exact path='/users/:user_id/sessions/:session_id' component={Eachsession} />
-            <Route exact path='/users/:user_id/sessions/:session_id/new' component={Startsession} /> 
+            <Route exact path='/' component={Page1} />
+            <Route exact path='/users/:user_id' component={Page2} />
+            <Route path='/users/:user_id/sessions' component={Page3} />
           </div>
         </MuiThemeProvider>
       </Router>
@@ -56,4 +52,5 @@ class App extends Component {
 }
 
 export default App;
+
 
