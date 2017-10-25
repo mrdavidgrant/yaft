@@ -2,8 +2,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
-    activities = @user.sessions.where template?: false
-    render json: {sessions: @user.sessions}
+    activities = @user.sessions.where template: false
+    render json: {sessions: activities}
   end
 
   def create
@@ -25,6 +25,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     @activity[:completed_at] = DateTime.now
     if params[:liftsets].present?
       @update = post_params[:liftsets]
+      puts post_params[:liftsets]
       @update.each do |liftset|
         set = @activity.liftsets.new
         set.update_attributes liftset
