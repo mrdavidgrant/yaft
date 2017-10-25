@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024004940) do
+ActiveRecord::Schema.define(version: 20171025144525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20171024004940) do
     t.datetime "completed_at"
     t.text "heartrate"
     t.text "calories"
+    t.boolean "template?", default: false
   end
 
   create_table "tokens", force: :cascade do |t|

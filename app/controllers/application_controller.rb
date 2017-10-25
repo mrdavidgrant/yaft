@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   attr_reader :current_user
 
   def null_response
-    render status: 401
+    render body: nil, status: 401
   end
 
   private

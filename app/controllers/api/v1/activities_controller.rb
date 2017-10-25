@@ -2,12 +2,14 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
+    activities = @user.sessions.where.not template?: true
     render json: {sessions: @user.sessions}
   end
 
   def create
     get_user
     @activity = @user.sessions.new name: params[:name]
+    @user.sessions.update_attributes
     if @user.save
       render json: {message: "success", activity: @activity}
     end
