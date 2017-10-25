@@ -10,6 +10,7 @@ Equipment.create(name: 'Atlas Machine')
 Equipment.create(name: 'Barbell')
 Equipment.create(name: 'Dumbell')
 Equipment.create(name: 'Kettlebell')
+Equipment.create(name: 'Smith Machine')
 
 chest = BodyPart.create(name: 'chest')
 back = BodyPart.create(name: 'back')
@@ -345,6 +346,115 @@ template.liftsets.create([
   {
     "motion":10, "reps":6, "rest":270, "equipment":2
   }
+])
+
+template = @testy.sessions.create ({name: 'Arnold_Shoulders_Arms', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
+template.liftsets.create([
+  {
+    "motion":22, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":22, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":22, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":22, "reps":8, "rest":270, "equipment":2
+  },
+  {
+    "motion":23, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":23, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":23, "reps":10, "rest":90, "equipment":3
+  },
+  {
+    "motion":23, "reps":8, "rest":270, "equipment":3
+  },
+  {
+    "motion":22, "reps":12, "rest":90, "equipment":5
+  },
+  {
+    "motion":22, "reps":10, "rest":90, "equipment":5
+  },
+  {
+    "motion":22, "reps":10, "rest":90, "equipment":5
+  },
+  {
+    "motion":22, "reps":8, "rest":270, "equipment":5
+  },
+  {
+    "motion":24, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":24, "reps":10, "rest":90, "equipment":3
+  },
+  {
+    "motion":24, "reps":10, "rest":270, "equipment":3
+  },
+  {
+    "motion":26, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":26, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":26, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":26, "reps":8, "rest":270, "equipment":2
+  },
+  {
+    "motion":16, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":16, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":16, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":16, "reps":10, "rest":270, "equipment":2
+  },
+  {
+    "motion":19, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":19, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":19, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":19, "reps":10, "rest":270, "equipment":2
+  },
+  {
+    "motion":16, "reps":12, "rest":0, "equipment":3
+  },
+  {
+    "motion":17, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":16, "reps":12, "rest":0, "equipment":3
+  },
+  {
+    "motion":17, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":16, "reps":10, "rest":0, "equipment":3
+  },
+  {
+    "motion":17, "reps":10, "rest":90, "equipment":3
+  },
+  {
+    "motion":16, "reps":10, "rest":0, "equipment":3
+  },
+  {
+    "motion":17, "reps":10, "rest":270, "equipment":3
+  },
 ])
 
 
