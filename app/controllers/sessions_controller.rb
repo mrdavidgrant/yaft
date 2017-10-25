@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_request
+  # skip_before_action :authenticate_request
 
   def new
     redirect_to "https://www.fitbit.com/oauth2/authorize?response_type=code&client_id=22CJ8J&redirect_uri=#{ENV['URL_PATH']}/auth/fitbit/callback&scope=activity%20heartrate%20profile%20weight&expires_in=604800"

@@ -1,5 +1,5 @@
 class Api::V1::SubscriptionsController < Api::V1::BaseController
-  skip_before_action :authenticate_request
+  # skip_before_action :authenticate_request
 
   def index
     puts params
