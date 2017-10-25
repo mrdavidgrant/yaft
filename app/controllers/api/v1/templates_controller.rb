@@ -14,7 +14,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
         @update = params[:liftsets]
         @update.each do |liftset|
           set = @template.liftsets.new
-          set.update_attributes liftset
+          set.update_attributes post_params
         end
       end
       if @user.save
