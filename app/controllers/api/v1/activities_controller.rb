@@ -27,7 +27,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
       @update = params[:liftsets]
       @update.each do |liftset|
         set = @activity.liftsets.new
-        set.update_attributes liftset
+        set.update_attributes post_params
       end
     end
     if @activity.save
@@ -51,6 +51,11 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   # if @user
   # else
   #   render json: @user.errors.full_messages
+  end
+
+  def post_params
+    params.require(:session).permit(:name, :liftsets, :user_id)
+    params.require(:liftset).permit(:motion, :reps, :rest, :weight, :equipment, :session)
   end
 
 end
