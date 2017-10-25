@@ -23,7 +23,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   def update
     @activity = Session.find params[:id]
     @activity[:completed_at] = DateTime.now
-    if params[:liftsets].present?
+    if params[:liftset].present?
       @update = params[:liftsets]
       @update.each do |liftset|
         set = @activity.liftsets.new
@@ -54,8 +54,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def post_params
-    params.require(:session).permit(:name, :liftsets, :user_id)
-    params.require(:liftset).permit(:motion, :reps, :rest, :weight, :equipment, :session)
+    params.require(:session).permit(:name, :user_id, :liftset => [:session_id, :equipment, :rest, :reps, :weight, :motion])
   end
 
 end
