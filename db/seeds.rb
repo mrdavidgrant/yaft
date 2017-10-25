@@ -79,12 +79,275 @@ shoulders.motions.create([{
   name: 'Upright Row'
 }])
 
-@testy = User.create(display_name: 'testy', user_id: 'x12y45', age: 30, avatar: "https://www.google.ca/search?q=goat+images&tbm=isch&source=iu&pf=m&ictx=1&fir=wOR7KhXm535IVM%253A%252CV3u8W2mI8xFwuM%252C_&usg=__zdej8q9H8OGU98r9siOyKuHccAM%3D&sa=X&ved=0ahUKEwig6_bHqIrXAhVjwYMKHX2XACwQ9QEIKDAA#imgrc=wOR7KhXm535IVM:", dob: "Date here", first_name: "Test", last_name: "McTesterson", full_name: "Test McTesterson", gender: 'MALE', height_cm: 188, weight_kg: 95)
+@testy = User.create(display_name: 'David G.', user_id: '24X947', age: 40, avatar: "https://d6y8zfzc2qfsl.cloudfront.net/5BCEC0FC-8CC3-EC4A-DD43-83C2727D8768_profile_100_square.jpg", dob: "1977-06-11", first_name: "David", last_name: "Grant", full_name: "David Grant", gender: 'MALE', height_cm: 188, weight_kg: 95)
 
-3.times do
-  @session = @testy.sessions.new(name: "weights")
-  12.times do
-    @session.liftsets.new(motion: Faker::Number.between(1,26), reps: Faker::Number.between(1,15), weight: (Faker::Number.between(1,30)*5), rest: Faker::Number.between(30,270), equipment: Faker::Number.between(1,4))
-  end
-  @session.save
-end
+workout = @testy.sessions.create ({name: 'Weights', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
+workout.liftsets.create([
+  {
+    "motion":1, "reps":12, "rest":90, "weight":50, "equipment":2
+  },
+  {
+    "motion":1, "reps":10, "rest":90, "weight":60, "equipment":2
+  },
+  {
+    "motion":1, "reps":8, "rest":90, "weight":70, "equipment":2
+  },
+  {
+    "motion":1, "reps":6, "rest":90, "weight":85, "equipment":2
+  },
+  {
+    "motion":1, "reps":4, "rest":270, "weight":90, "equipment":2
+  },
+  {
+    "motion":2, "reps":12, "rest":90, "weight":25, "equipment":2
+  },
+  {
+    "motion":2, "reps":10, "rest":90, "weight":35, "equipment":2
+  },
+  {
+    "motion":2, "reps":8, "rest":90, "weight":45, "equipment":2
+  },
+  {
+    "motion":2, "reps":6, "rest":90, "weight":50, "equipment":2
+  },
+  {
+    "motion":2, "reps":4, "rest":270, "weight":55, "equipment":2
+  },
+  {
+    "motion":3, "reps":12, "rest":90, "weight":20, "equipment":3
+  },
+  {
+    "motion":3, "reps":10, "rest":90, "weight":25, "equipment":3
+  },
+  {
+    "motion":3, "reps":8, "rest":90, "weight":30, "equipment":3
+  },
+  {
+    "motion":3, "reps":6, "rest":270, "weight":35, "equipment":3
+  },
+  {
+    "motion":4, "reps":12, "weight":170, "rest":90
+  },
+  {
+    "motion":4, "reps":10, "weight":180, "rest":90
+  },
+  {
+    "motion":4, "reps":8, "weight":190, "rest":90
+  },
+  {
+    "motion":4, "reps":6, "weight":200, "rest":270
+  },
+  {
+    "motion":5, "reps":12, "rest":90, "weight":15, "equipment":1
+  },
+  {
+    "motion":5, "reps":10, "rest":90, "weight":20, "equipment":1
+  },
+  {
+    "motion":5, "reps":8, "rest":90, "weight":25, "equipment":1
+  },
+  {
+    "motion":5, "reps":6, "rest":270, "weight":30, "equipment":1
+  },
+  {
+    "motion":6, "reps":12, "rest":90, "weight":77, "equipment":1
+  },
+  {
+    "motion":6, "reps":10, "rest":90, "weight":88, "equipment":1
+  },
+  {
+    "motion":6, "reps":8, "rest":90, "weight":99, "equipment":1
+  },
+  {
+    "motion":6, "reps":8, "rest":270, "weight":110, "equipment":1
+  },
+  {
+    "motion":7, "reps":15, "rest":90, "weight":77, "equipment":1
+  },
+  {
+    "motion":7, "reps":12, "rest":90, "weight":88, "equipment":1
+  },
+  {
+    "motion":7, "reps":10, "rest":90, "weight":99, "equipment":1
+  },
+  {
+    "motion":7, "reps":8, "rest":90, "weight":110, "equipment":1
+  },
+  {
+    "motion":7, "reps":8, "rest":270, "weight":121, "equipment":1
+  },
+  {
+    "motion":8, "reps":12, "rest":90, "weight":28, "equipment":2
+  },
+  {
+    "motion":8, "reps":10, "rest":90, "weight":53, "equipment":2
+  },
+  {
+    "motion":8, "reps":8, "rest":90, "weight":78, "equipment":2
+  },
+  {
+    "motion":8, "reps":6, "rest":270, "weight":103, "equipment":2
+  },
+  {
+    "motion":9, "reps":12, "rest":90, "weight":60, "equipment":2
+  },
+  {
+    "motion":9, "reps":10, "rest":90, "weight":70, "equipment":2
+  },
+  {
+    "motion":9, "reps":8, "rest":90, "weight":80, "equipment":2
+  },
+  {
+    "motion":9, "reps":6, "rest":270, "weight":100, "equipment":2
+  },
+  {
+    "motion":10, "reps":12, "rest":90, "weight":77, "equipment":2
+  },
+  {
+    "motion":10, "reps":12, "rest":90, "weight":88, "equipment":2
+  },
+  {
+    "motion":10, "reps":10, "rest":90, "weight":99, "equipment":2
+  },
+  {
+    "motion":10, "reps":6, "rest":270, "weight":110, "equipment":2
+  }
+])
+
+template = @testy.sessions.create ({name: 'Arnold_Chest_Back', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
+template.liftsets.create([
+  {
+    "motion":1, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":1, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":1, "reps":8, "rest":90, "equipment":2
+  },
+  {
+    "motion":1, "reps":6, "rest":90, "equipment":2
+  },
+  {
+    "motion":1, "reps":4, "rest":270, "equipment":2
+  },
+  {
+    "motion":2, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":2, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":2, "reps":8, "rest":90, "equipment":2
+  },
+  {
+    "motion":2, "reps":6, "rest":90, "equipment":2
+  },
+  {
+    "motion":2, "reps":4, "rest":270, "equipment":2
+  },
+  {
+    "motion":3, "reps":12, "rest":90, "equipment":3
+  },
+  {
+    "motion":3, "reps":10, "rest":90, "equipment":3
+  },
+  {
+    "motion":3, "reps":8, "rest":90, "equipment":3
+  },
+  {
+    "motion":3, "reps":6, "rest":270, "equipment":3
+  },
+  {
+    "motion":4, "reps":12, "rest":90
+  },
+  {
+    "motion":4, "reps":10, "rest":90
+  },
+  {
+    "motion":4, "reps":8, "rest":90
+  },
+  {
+    "motion":4, "reps":6, "rest":270
+  },
+  {
+    "motion":5, "reps":12, "rest":90, "equipment":1
+  },
+  {
+    "motion":5, "reps":10, "rest":90, "equipment":1
+  },
+  {
+    "motion":5, "reps":8, "rest":90, "equipment":1
+  },
+  {
+    "motion":5, "reps":6, "rest":270, "equipment":1
+  },
+  {
+    "motion":6, "reps":12, "rest":90, "equipment":1
+  },
+  {
+    "motion":6, "reps":10, "rest":90, "equipment":1
+  },
+  {
+    "motion":6, "reps":8, "rest":90, "equipment":1
+  },
+  {
+    "motion":6, "reps":8, "rest":270, "equipment":1
+  },
+  {
+    "motion":7, "reps":15, "rest":90, "equipment":1
+  },
+  {
+    "motion":7, "reps":12, "rest":90, "equipment":1
+  },
+  {
+    "motion":7, "reps":10, "rest":90, "equipment":1
+  },
+  {
+    "motion":7, "reps":8, "rest":90, "equipment":1
+  },
+  {
+    "motion":7, "reps":8, "rest":270, "equipment":1
+  },
+  {
+    "motion":8, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":8, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":8, "reps":8, "rest":90, "equipment":2
+  },
+  {
+    "motion":8, "reps":6, "rest":270, "equipment":2
+  },
+  {
+    "motion":9, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":9, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":9, "reps":8, "rest":90, "equipment":2
+  },
+  {
+    "motion":9, "reps":6, "rest":270, "equipment":2
+  },
+  {
+    "motion":10, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":10, "reps":12, "rest":90, "equipment":2
+  },
+  {
+    "motion":10, "reps":10, "rest":90, "equipment":2
+  },
+  {
+    "motion":10, "reps":6, "rest":270, "equipment":2
+  }
+])
+
+
+
+
+
