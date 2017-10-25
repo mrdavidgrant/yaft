@@ -5,20 +5,21 @@ class ProfileContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            bulldogs: []
+            user: {}
         }
     }
 
     componentWillMount() {
-        fetch('https://dog.ceo/api/breeds/list/al')
+        fetch(`/api/v1/users/${this.props.userId}`)
           .then(res => res.json())
           .then(value => {
-              this.setState({bulldogs: value.message.bulldog})
+              this.setState({user: value.user})
           })
     }
 
-    render() {
-        return <Profile user={this.state.bulldogs} />
+    render() {    
+        console.log(this.state) 
+        return <Profile user={this.state.user} />
     }
 }
 

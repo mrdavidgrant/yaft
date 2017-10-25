@@ -6,7 +6,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import '../styles/App.css';
 import Page1 from '../pages/page1.js';
 import Page2 from '../pages/page2.js';
-import Page3 from '../pages/page3.js';
+import Sessions from '../components/Sessions.js';
 
 // import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -27,14 +27,6 @@ class App extends Component {
     }
   }
   
-  componentWillMount() {
-    fetch('https://localhost:3001/api/v1/users/1/activities')
-     .then(res => res.json())
-     .then(value => {
-       console.log('hi', value)
-      //  this.setState({bulldogs: value.message.bulldog})
-      })
-  }
 
   render() {
     return (
@@ -43,7 +35,7 @@ class App extends Component {
           <div className="appContainer">
             <Route exact path='/' component={Page1} />
             <Route exact path='/users/:user_id' component={Page2} />
-            <Route path='/users/:user_id/sessions' component={Page3} />
+            <Route path='/users/:user_id/sessions' component={Sessions} />
           </div>
         </MuiThemeProvider>
       </Router>

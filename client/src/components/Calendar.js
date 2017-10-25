@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import RaisedButton from 'material-ui/RaisedButton';
-import Eachsession from './Eachsession.js';
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../styles/Calendar.css'
 

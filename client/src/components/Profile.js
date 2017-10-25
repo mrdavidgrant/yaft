@@ -5,12 +5,10 @@ import MenuItem from 'material-ui/MenuItem';
 import DatePicker from 'material-ui/DatePicker';
 import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
 import '../styles/Profile.css'
 import AvatarImage from './AvatarImage.js';
-import _ from 'lodash';
 
 const datePickerStyle = {
   backgroundColor: '#FFF'
@@ -35,7 +33,7 @@ const raiseButtonStyle = {
   top: '0'
 }
 
-
+const img = require('../images/avatar.png')
 
 class Profile extends Component {
   constructor(props) {
@@ -43,14 +41,23 @@ class Profile extends Component {
     this.state = {
       value: 1,
     }
-}
-
-
-   
+  }
+  
   handleChange = (event, index, value) => this.setState({value});
   
   render() {
-    console.log(this.props.user)
+    const {user} = this.props
+    const userInfo = {
+      firstName: user.first_name ? user.first_name : 'First Name',
+      lastName: user.last_name ? user.last_name : 'Last Name',
+      userName: user.display_name ? user.display_name : 'Username',
+      dOfB: user.dob ? user.dob : 'Date of Birth',
+      gender: user.gender ? user.gender : 'Gender',
+      height: user.height_cm ? user.height_cm : 'Height',
+      Weight: user.weight_kg ? user.weight_kg : 'Weight',
+      img: user.avatar ? user.avatar : img
+
+    }
 
     return (
         <div className="profileContainer">
@@ -59,14 +66,15 @@ class Profile extends Component {
             <div className="topContainer">
                 <div className="topLeftContainer">
                   <TextField
-                  floatingLabelText="First Name"
-                  style={{marginRight: '30px'}}
+                    floatingLabelText={userInfo.firstName}
+                    style={{marginRight: '30px'}}
+                    disabled
                   /> <br />
                   <TextField
-                    floatingLabelText="Last Name"
+                    floatingLabelText={userInfo.lastName}
                   /><br />
                   <TextField
-                    floatingLabelText="Username"
+                    floatingLabelText={userInfo.userName}
                   /><br />
                 </div>
 
@@ -75,7 +83,7 @@ class Profile extends Component {
                     <ListItem
                       disabled={true}
                       rightAvatar={
-                        <Avatar size={130} icon={<AvatarImage/>} />
+                        <Avatar size={130} icon={<AvatarImage img={userInfo.img} />} />
                       }
                     />
                   </List>
@@ -92,13 +100,9 @@ class Profile extends Component {
 
             <div className="bottomContainer">
               <TextField
-                floatingLabelText="E-mail"
+                floatingLabelText={userInfo.email}
                 style={{marginRight: '30px'}}
               />
-              <TextField
-                floatingLabelText="Password"
-                type="password"
-              /><br />
               <DatePicker
                   dialogContainerStyle={datePickerStyle}
                   hintText="Date of Birth"

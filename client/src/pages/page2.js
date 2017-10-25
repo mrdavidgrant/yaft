@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar.js';
-import Profile from '../components/Profile.js';
+import ProfileContainer from '../containers/ProfileContainer.js';
 
 class Page2 extends Component {
     render() {
+        const userId = this.props.match.params.user_id
         return (
             <div>
-            <Navbar/>
-            <Profile/>
+                <Navbar />
+                <ProfileContainer userId={userId} />
             </div>
         )
     }

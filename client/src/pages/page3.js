@@ -6,8 +6,8 @@ class Page3 extends Component {
     render() {
         return (
             <div>
-            <Navbar/>
-            <Exerciselog/>
+                <Navbar />
+                <Exerciselog  />
             </div>
         )
     }
