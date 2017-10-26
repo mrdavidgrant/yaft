@@ -3,4 +3,5 @@ class Session < ApplicationRecord
   has_many :liftsets
   serialize :heartrate, Array
   serialize :calories, Array
+
 end

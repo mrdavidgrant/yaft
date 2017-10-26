@@ -3,7 +3,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   def index
     get_user
     activities = @user.sessions.where template: false
-    render json: {sessions: activities}
+    list = activities.select { |k,v| !%w(updated_at session_id heartrate calories template).include?(k) }
+    render json: {sessions: list}
   end
 
   def create
@@ -23,7 +24,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def show
-    @activity = Session.find params[:id]
+    @activity = Session.find(params[:id])
     render json: {activity: @activity, liftsets: @activity.liftsets}
   end
 
