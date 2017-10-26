@@ -215,7 +215,7 @@ workout.liftsets.create([
   }
 ])
 
-template = @testy.sessions.create ({name: 'Arnold_Chest_Back', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true})
+template = @testy.sessions.create ({name: 'Arnold_Chest', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true, body_parts_id: 1})
 template.liftsets.create([
   {
     "motion_id":1, "reps":12, "rest":90, "equipment_id":2
@@ -282,7 +282,12 @@ template.liftsets.create([
   },
   {
     "motion_id":5, "reps":6, "rest":270, "equipment_id":1
-  },
+  }
+])
+
+template = @testy.sessions.create ({name: 'Arnold_Chest', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true, body_parts_id: 2})
+template.liftsets.create([
+
   {
     "motion_id":6, "reps":12, "rest":90, "equipment_id":1
   },

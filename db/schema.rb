@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026160341) do
+ActiveRecord::Schema.define(version: 20171026184215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20171026160341) do
     t.text "heartrate"
     t.text "calories"
     t.boolean "template", default: false
+    t.bigint "body_parts_id"
+    t.index ["body_parts_id"], name: "index_sessions_on_body_parts_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -90,4 +92,5 @@ ActiveRecord::Schema.define(version: 20171026160341) do
 
   add_foreign_key "liftsets", "equipment"
   add_foreign_key "liftsets", "motions"
+  add_foreign_key "sessions", "body_parts", column: "body_parts_id"
 end
