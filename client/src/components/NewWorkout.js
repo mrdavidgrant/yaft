@@ -1,97 +1,84 @@
 import React, {Component} from 'react';
 
-
-
-const categories = [
-  "arms",
-  "legs",
-  "back",
-  "chest",
-  "shoulders"
-];
-
-const motions = [
-  'armsMotions',
-  'legsMotions',
-  'backMotions',
-  'chestMotions',
-  'shouldersMotions'
+const sampleData: [
+  template: {
+    id: 2,
+    created_at: "2017-08-28T14:30:00.000-04:00",
+    updated_at: "2017-10-26T14:39:07.892-04:00",
+    name: "Arnold_Chest_Back",
+    user_id: "24X947",
+    completed_at: "2017-08-28T16:53:00.000-04:00",
+    heartrate: [ ],
+    calories: [ ],
+    template: true
+  },
+liftsets: [
+  {
+    id: 40,
+    reps: 12,
+    weight: null,
+    rest: 90,
+    started: null,
+    stopped: null,
+    motion: "Bench Press",
+    equipment: "Barbell"
+  },
+  {
+    id: 41,
+    reps: 10,
+    weight: null,
+    rest: 90,
+    started: null,
+    stopped: null,
+    motion: "Bench Press",
+    equipment: "Barbell"
+  },
+  {
+    id: 42,
+    reps: 8,
+    weight: null,
+    rest: 90,
+    started: null,
+    stopped: null,
+    motion: "Bench Press",
+    equipment: "Barbell"
+  },
 ]
 
-const settings = [
-  'armsSettings',
-  'legsSettings',
-  'backSettings',
-  'chestSettings',
-  'shouldersSettings'
-]
+const TemplateLayout = (props) => (
+  <div>
+    <button>{props.templateName}</button>
+  </div>
+)
 
-export default class NewWorkout extends Component {
+class NewWorkout extends Component {
   constructor(props){
     super(props);
     this.state = {
       currentCategory: null,
     }
-    this.changeMotions = this.changeMotions.bind(this);
-    this.changeSettings = this.changeSettings.bind(this);
-  }
-  // componentDidMount(){
-  //     fetch('http://localhost:3000/body-parts/1')
-  //     .then(res => res.json())
-  //     .then(value => {
-  //
-  //     })
-
-  changeMotions(motion) {
-    this.setState({ currentCategory: motion })
-  }
-  changeSettings(setting){
-    this.setState({ currentCategory: setting})
   }
 
   render() {
     return (
       <div>
         <nav>
-          <h1>Area of Focus</h1>
+          <h1>Template</h1>
           <ul>
-            { categories.map((category, idx) => {
-              return (
-                <li key={idx}>
-                  <button onClick={() => this.changeMotions(category)}>
-                    { category }
-                  </button>
-                </li>
-              )
-            }) }
+
           </ul>
         </nav>
-        <h2>Activities</h2>
+        <h2>Form</h2>
         <ul>
-          { motions.filter((motion) => { return motion.includes(this.state.currentCategory) }).map((motion, idx) => {
-            return (
-              <li key={idx}>
-                <button >
-                  { motion }
-                </button>
-              </li>
-            )
-          }) }
+
         </ul>
-        <h3>Settings</h3>
+        <h3>Create Template</h3>
         <ul>
-          { settings.filter((setting) => { return setting.includes(this.state.currentCategory) }).map((setting, idx) => {
-            return (
-              <li key={idx}>
-                  { setting }
-              </li>
-            )
-          }) }
+
         </ul>
       </div>
     )
   }
-
-
-
 }
+
+export default NewWorkout
