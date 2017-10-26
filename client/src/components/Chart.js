@@ -29,8 +29,6 @@ const data = {
   }
 
 
-
-
 // const chartContainerStyle = {
 //     width: '65%',
 //     height: '100vh',

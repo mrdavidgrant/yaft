@@ -149,5 +149,3 @@ class Profile extends Component {
   }
 }
 export default Profile
-
-/* {!_.isEmpty(this.props.user) &&  */
