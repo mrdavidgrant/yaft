@@ -61,9 +61,7 @@ class Calendar extends Component {
                   events={myEventsList}
                   views={views}
                   onSelectEvent={this.handleEventClick}
-                  components={{
-                    event: CustomEvent({event, userId: this.props.userId})
-                  }}
+           
               />
             </div>
             <RaisedButton 
