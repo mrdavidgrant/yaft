@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022204257) do
+ActiveRecord::Schema.define(version: 20171027130506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,15 +29,17 @@ ActiveRecord::Schema.define(version: 20171022204257) do
 
   create_table "liftsets", force: :cascade do |t|
     t.integer "session_id"
-    t.integer "motion"
     t.integer "reps"
     t.integer "weight"
     t.integer "rest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "equipment"
     t.datetime "started"
     t.datetime "stopped"
+    t.bigint "motion_id"
+    t.bigint "equipment_id"
+    t.index ["equipment_id"], name: "index_liftsets_on_equipment_id"
+    t.index ["motion_id"], name: "index_liftsets_on_motion_id"
   end
 
   create_table "motions", force: :cascade do |t|
@@ -52,6 +54,13 @@ ActiveRecord::Schema.define(version: 20171022204257) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "user_id"
+    t.datetime "completed_at"
+    t.text "heartrate"
+    t.text "calories"
+    t.boolean "template", default: false
+    t.bigint "body_parts_id"
+    t.datetime "started_at"
+    t.index ["body_parts_id"], name: "index_sessions_on_body_parts_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -82,4 +91,7 @@ ActiveRecord::Schema.define(version: 20171022204257) do
     t.index ["user_id"], name: "index_users_on_user_id", unique: true
   end
 
+  add_foreign_key "liftsets", "equipment"
+  add_foreign_key "liftsets", "motions"
+  add_foreign_key "sessions", "body_parts", column: "body_parts_id"
 end
