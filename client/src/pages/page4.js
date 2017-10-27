@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import Login from '../components/Login.js';
 import Navbar from '../components/Navbar.js';
+import Eachsession from '../components/Eachsession.js';
 
-class Page1 extends Component {
+class Page4 extends Component {
     render() {
         return (
             <div>
                 <Navbar/>
-                <Login/>
+                <Eachsession path={this.props.history.location.pathname} />
             </div>
         )
     }
-}
+} 
 
-export default Page1;
+export default Page4;
