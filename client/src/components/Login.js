@@ -6,7 +6,7 @@ class Login extends Component {
   render () {
     return (
       <div className="loginform">
-        <form action="https://yaft.herokuapp.com/login" method="post">
+        <form action="https://yaft.herokuapp.com/login" method="get">
           <button type="submit" className="loginbutton"><span>LOGIN WITH </span><img src={img} height="25px" /> </button>
           </form>
       </div>
