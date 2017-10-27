@@ -16,7 +16,6 @@ export default class TemplateContainer extends Component {
     this.getLiftSet = this.getLiftSet.bind(this);
   }
   componentWillMount(){
-
       fetch(`/api/v1/users/${this.userId}/templates`)
       .then(res => res.json())
       .then((bodyParts) => {
@@ -43,13 +42,29 @@ export default class TemplateContainer extends Component {
 
   render() {
     let templates = null;
+    let liftsetList= null;
 
     if(this.state.bodyParts) {
       templates = this.state.bodyParts.map((template) => {
         return (
           <TemplateLayout
-            templateName={template.name} templateID={template.id}
+            templateName={template.name}
+            templateID={template.id}
             handleClick={this.getLiftSet}
+          />
+        );
+      });
+    }
+
+    if (this.state.data){
+      liftsetList = this.state.data.map((liftset) => {
+        console.log(liftset.motion)
+        return (
+          <LiftsetLayout
+            motionTem={liftset.motion}
+            equipmentTem={liftset.equipment}
+            weightTem={liftset.weight}
+            repsTem={liftset.reps}
           />
         );
       });
@@ -58,7 +73,7 @@ export default class TemplateContainer extends Component {
     return (
       <div>
         {templates}
-        <LiftsetLayout liftSet={this.state.data} />
+        {liftsetList}
       </div>
 
     );
