@@ -44,14 +44,9 @@ class Calendar extends Component {
                   {...this.props}
                   events={this.props.userSessions}
                   views={views}
-<<<<<<< HEAD
-                  onSelectEvent={this.handleEventClick}
-
-=======
                   onSelectEvent={({sessionId}) => {
                     history.push(`/users/${this.props.userId}/sessions/${sessionId}`);
                   }}
->>>>>>> zoey
               />
             </div>
             <RaisedButton
