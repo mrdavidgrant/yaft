@@ -17,8 +17,7 @@ class ProfileContainer extends Component {
           })
     }
 
-    render() {    
-        console.log(this.state) 
+    render() {
         return <Profile user={this.state.user} />
     }
 }

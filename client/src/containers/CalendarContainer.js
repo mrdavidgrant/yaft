@@ -15,7 +15,7 @@ class CalendarContainer extends Component {
           .then(value => {
             const userSessions = value.sessions.map(session => ({
                 sessionId: session.id,
-                start: session.created_at,
+                start: session.started_at,
                 end: session.completed_at,
                 title: session.name  
             }))

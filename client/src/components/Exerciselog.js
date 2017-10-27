@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import CalendarContainer from '../containers/CalendarContainer.js';
 
-
-
 class Exerciselog extends Component {
     render() {
         return (

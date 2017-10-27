@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import RaisedButton from 'material-ui/RaisedButton';
 //import CustomEvent from './CustomEvent.js';
+import { Route } from 'react-router-dom'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../styles/Calendar.css'
@@ -33,35 +34,19 @@ const buttonStyle = {
 
 class Calendar extends Component {
 
-  handleEventClick = (event, target) => {
-    let obj = target.currentTarget;
-    console.log(obj)
-  }
-
   render() {
-    const myEventsList = [
-      {
-      'title': 'Leg Day',
-      'allDay': true,
-      'start': moment('2017-10-01'),
-      'end': moment('2017-10-01')
-      },
-      {
-        'title': 'Marathon',
-        'start': moment('2017-10-11'),
-        'end': moment('2017-10-11')
-      }
-    ]
     return (
+      <Route render={({ history}) => (
           <div style={style}>
             <div style={calendarContainerStyle}>
               <BigCalendar
                   selectable
                   {...this.props}
-                  events={myEventsList}
+                  events={this.props.userSessions}
                   views={views}
-                  onSelectEvent={this.handleEventClick}
-
+                  onSelectEvent={({sessionId}) => {
+                    history.push(`/users/${this.props.userId}/sessions/${sessionId}`);
+                  }}
               />
             </div>
             <RaisedButton
@@ -72,7 +57,9 @@ class Calendar extends Component {
               style={buttonStyle}
             />
           </div>
-    )
+        )} />
+    );
+
   }
 }
 
