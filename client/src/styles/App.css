@@ -1,3 +1,32 @@
 .appContainer {
     background-color: #E7E8E8;
 }
+
+.loginbutton {
+    color: white;
+    background-color:
+    #ee773e;
+    font-family: "Roboto";
+    padding: 10px;
+    font-size: larger;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -113.742px;
+}
+
+.loginform {
+    width: 100%;
+    margin: auto;
+    background: white;
+}
+
+
+
+.loginbutton span {
+
+}

@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Route } from 'react-router-dom'
+//import CustomEvent from './CustomEvent.js';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../styles/Calendar.css'
@@ -43,22 +44,27 @@ class Calendar extends Component {
                   {...this.props}
                   events={this.props.userSessions}
                   views={views}
+<<<<<<< HEAD
                   onSelectEvent={({sessionId}) => {
-                    history.push(`/users/${this.props.userId}/sessions/${sessionId}`);                        
+                    history.push(`/users/${this.props.userId}/sessions/${sessionId}`);
                   }}
+=======
+                  onSelectEvent={this.handleEventClick}
+
+>>>>>>> feature/login-page
               />
             </div>
-            <RaisedButton 
-              label="Start New Workout" 
-              primary={false} 
-              backgroundColor='#EE773E' 
-              labelColor='#fff' 
-              style={buttonStyle} 
+            <RaisedButton
+              label="Start New Workout"
+              primary={false}
+              backgroundColor='#EE773E'
+              labelColor='#fff'
+              style={buttonStyle}
             />
           </div>
         )} />
     );
-    
+
   }
 }
 

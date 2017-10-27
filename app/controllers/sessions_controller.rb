@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     get_user
     ltoken = jwt_encode(user_id: @user.user_id)
     if @user.save
-      render json: {auth_token: ltoken, user: @user}
+      redirect_to "http://localhost:3000/users/#{@user.user_id}/"
     else
       render json: {errors: user.errors.full_messages}
     end
