@@ -10,13 +10,8 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_request
-<<<<<<< HEAD
-    # @current_user = AuthorizeApiRequest.call(request.headers).result
-    # render json: { error: "not authorized"}, status: 401 unless @current_user
-=======
     @current_user = AuthorizeApiRequest.call(request.headers).result
     render json: { error: 'Not Authorized' }, status: 401 unless @current_user
->>>>>>> feature/heroku
   end
 
   def jwt_encode(payload, exp = 48.hours.from_now)
