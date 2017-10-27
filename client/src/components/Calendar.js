@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import RaisedButton from 'material-ui/RaisedButton';
-import CustomEvent from './CustomEvent.js';
+//import CustomEvent from './CustomEvent.js';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../styles/Calendar.css'
@@ -61,15 +61,15 @@ class Calendar extends Component {
                   events={myEventsList}
                   views={views}
                   onSelectEvent={this.handleEventClick}
-           
+
               />
             </div>
-            <RaisedButton 
-              label="Start New Workout" 
-              primary={false} 
-              backgroundColor='#EE773E' 
-              labelColor='#fff' 
-              style={buttonStyle} 
+            <RaisedButton
+              label="Start New Workout"
+              primary={false}
+              backgroundColor='#EE773E'
+              labelColor='#fff'
+              style={buttonStyle}
             />
           </div>
     )
