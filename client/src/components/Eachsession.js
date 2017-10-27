@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chart from './Chart.js'
+import ChartContainer from '../containers/ChartContainer.js'
 import '../styles/Eachsession.css'
 
 
@@ -8,7 +8,7 @@ class Eachsession extends Component {
     render() {
         return (
             <main className="chartsContainer">
-                <Chart/>
+                <ChartContainer path={this.props.path} />
             </main>
         )
     }

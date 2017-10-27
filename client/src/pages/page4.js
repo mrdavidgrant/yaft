@@ -6,8 +6,8 @@ class Page4 extends Component {
     render() {
         return (
             <div>
-            <Navbar/>
-            <Eachsession/>
+                <Navbar/>
+                <Eachsession path={this.props.history.location.pathname} />
             </div>
         )
     }

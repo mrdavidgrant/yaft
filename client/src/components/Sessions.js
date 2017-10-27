@@ -8,7 +8,7 @@ class Sessions extends Component {
     render() {
         return (
             <Router>
-                <div>
+                <div className="sessions">
                     <Route exact path='/users/:user_id/sessions' component={Page3} />
                     <Route exact path='/users/:user_id/sessions/:session_id' component={Page4} />
                     <Route path='/users/:user_id/sessions/:session_id/new' component={Page5} /> 
