@@ -1,4 +1,4 @@
-class AuthorizeApiRequest
+class AuthorizeApiRequest < ApplicationController
   prepend SimpleCommand
 
   def initialize(headers = {})
@@ -19,16 +19,17 @@ class AuthorizeApiRequest
   end
 
   def decoded_auth_token
-    @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
+    @decoded_auth_token ||= jwt_decode(http_auth_header)
   end
 
   def http_auth_header
     if headers['Authorization'].present?
-      return headers['Authorization']
+      return headers['Authorization'].split(' ').last
     else
       errors.add(:token, 'Missing token')
     end
-    nil
-  end
 
+    nil
+
+  end
 end
