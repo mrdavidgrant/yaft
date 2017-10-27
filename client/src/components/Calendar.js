@@ -34,7 +34,6 @@ const buttonStyle = {
 class Calendar extends Component {
 
   render() {
-
     return (
       <Route render={({ history}) => (
           <div style={style}>
