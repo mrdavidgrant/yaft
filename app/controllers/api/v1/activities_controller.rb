@@ -2,9 +2,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def index
     get_user
-    activities = @user.sessions.where template: false
-    list = activities.select { |k,v| !%w(updated_at session_id heartrate calories template).include?(k) }
-    render json: {sessions: list}
+    activities = @user.sessions.where(template: false).select { |k,v| !%w(updated_at session_id heartrate calories template).include?(k) }
+    render json: {sessions: activities}
   end
 
   def create

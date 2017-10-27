@@ -82,7 +82,7 @@ shoulders.motions.create([{
 
 @testy = User.create(display_name: 'David G.', user_id: '24X947', age: 40, avatar: "https://d6y8zfzc2qfsl.cloudfront.net/5BCEC0FC-8CC3-EC4A-DD43-83C2727D8768_profile_100_square.jpg", dob: "1977-06-11", first_name: "David", last_name: "Grant", full_name: "David Grant", gender: 'MALE', height_cm: 188, weight_kg: 95)
 
-workout = @testy.sessions.create ({name: 'Weights', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
+workout = @testy.sessions.create ({name: 'Weights', started_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
 workout.liftsets.create([
   {
     "motion_id":1, "reps":12, "rest":90, "weight":50, "equipment_id":2

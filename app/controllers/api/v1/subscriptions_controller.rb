@@ -32,8 +32,8 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   def getHeartRate(update)
     @activities = @updateUser.sessions.where(heartrate: nil).where(template: false).order(completed_at: :desc)
     @activities.each do |activity|
-      date = activity.created_at.strftime("%Y-%m-%d")
-      start = activity.created_at.strftime("%H:%M:%S")
+      date = activity.started_at.strftime("%Y-%m-%d")
+      start = activity.started_at.strftime("%H:%M:%S")
       finish = activity.completed_at.strftime("%H:%M:%S")
       hr = Curl::Easy.perform("https://api.fitbit.com/1/user/#{@updateUser[:user_id]}/activities/heart/date/#{date}/#{date}/1sec/time/#{start}/#{finish}.json") do |curl|
         curl.headers["Authorization"] = "Bearer #{@updateUser.token[:access_token]}"
@@ -58,8 +58,8 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
   def getCalories(update)
     @activities = @updateUser.sessions.where(calories: nil).where(template: false).order(completed_at: :desc)
     @activities.each do |activity|
-      date = activity.created_at.strftime("%Y-%m-%d")
-      start = activity.created_at.strftime("%H:%M:%S")
+      date = activity.started_at.strftime("%Y-%m-%d")
+      start = activity.started_at.strftime("%H:%M:%S")
       finish = activity.completed_at.strftime("%H:%M:%S")
       cal = Curl::Easy.perform("https://api.fitbit.com/1/user/#{@updateUser[:user_id]}/activities/calories/date/#{date}/#{date}/1min/time/#{start}/#{finish}.json") do |curl|
         curl.headers["Authorization"] = "Bearer #{@updateUser.token[:access_token]}"
