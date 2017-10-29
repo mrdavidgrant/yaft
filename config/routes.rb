@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   namespace :api do
     namespace :v1 do
       get 'motions/index'
@@ -18,8 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
+=======
+>>>>>>> zoey
   namespace :api do
     namespace :v1 do
+      resources :motions, only: [:index]
       resources :subscriptions, only: [:index, :create]
       resources :users, only: [:show]
       resources :users, param: :user_id, only: [:show] do
