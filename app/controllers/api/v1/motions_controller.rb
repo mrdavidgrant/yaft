@@ -1,10 +1,6 @@
-class Api::V1::MotionsController < ApplicationController
+class Api::V1::MotionsController < Api::V1::BaseController
   def index
-  end
-
-  def create
-  end
-
-  def destroy
+    motions = Motion.all
+    render json: {motions: motions}
   end
 end
