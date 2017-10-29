@@ -1,3 +1,8 @@
-.appContainer {
-    background-color: #E7E8E8;
+html, body, #root {
+    height: 100%;
 }
+.appContainer {
+    background-color: white;
+    height: 100%;
+}
+

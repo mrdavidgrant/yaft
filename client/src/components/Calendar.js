@@ -54,6 +54,7 @@ class Calendar extends Component {
               backgroundColor='#EE773E' 
               labelColor='#fff' 
               style={buttonStyle} 
+              href={`/users/${this.props.userId}/sessions/pick/new`}
             />
           </div>
         )} />

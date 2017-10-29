@@ -135,6 +135,7 @@ class Profile extends Component {
               backgroundColor='#EE773E' 
               labelColor='#fff' 
               style={buttonStyle}
+              href={`/users/${userInfo.userId}/sessions/pick/new`}
           />
           <RaisedButton 
               label="View Workout History" 
