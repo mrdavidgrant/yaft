@@ -1,14 +1,12 @@
 class Api::V1::TemplatesController < Api::V1::BaseController
 
     def index
-      get_user
-      sessions = @user.sessions.where template: true
+      sessions = Session.where template: true
       render json: {templates: sessions}
     end
 
     def create
-      get_user
-      @template = @user.sessions.new name: post_params[:name]
+      @template = Sessions.new name: post_params[:name]
       @template[:template] = true
       if post_params[:liftsets].present?
         @update = post_params[:liftsets]
@@ -17,7 +15,7 @@ class Api::V1::TemplatesController < Api::V1::BaseController
           set.update_attributes liftset
         end
       end
-      if @user.save
+      if @template.save
         render json: {message: "success", template: @template}
       end
     end
