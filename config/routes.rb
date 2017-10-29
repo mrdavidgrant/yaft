@@ -1,26 +1,5 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-  namespace :api do
-    namespace :v1 do
-      get 'motions/index'
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      get 'motions/create'
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      get 'motions/destroy'
-    end
-  end
-
-=======
->>>>>>> zoey
   namespace :api do
     namespace :v1 do
       resources :motions, only: [:index]
