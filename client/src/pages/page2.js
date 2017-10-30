@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar.js';
 import ProfileContainer from '../containers/ProfileContainer.js';
 
+const style ={
+    backgroundColor: 'gray',
+    height: '100%'
+}
+
 class Page2 extends Component {
     render() {
         const userId = this.props.match.params.user_id
         return (
-            <div>
+            <div style={style}>
                 <Navbar />
                 <ProfileContainer userId={userId} />
             </div>
