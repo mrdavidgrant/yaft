@@ -6,8 +6,8 @@ class Page5 extends Component {
     render() {
         return (
             <div>
-            <Navbar/>
-            <Startsession/>
+                <Navbar/>
+                <Startsession />
             </div>
         )
     }

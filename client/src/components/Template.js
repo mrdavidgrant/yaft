@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import Checkbox from 'material-ui/Checkbox';
 
 
 const styles = {
@@ -20,7 +20,7 @@ const styles = {
 
 const tilesData = [
     {
-      img: 'images/grid-list/00-52-29-429_640.jpg',
+      img: 'images/grid-list/00-52-29-429_642.jpg',
       title: 'Breakfast',
       author: 'jill111',
     },
@@ -30,7 +30,7 @@ const tilesData = [
       author: 'pashminu',
     },
     {
-        img: 'images/grid-list/burger-827309_640.jpg',
+        img: 'images/grid-list/burger-827309_641.jpg',
         title: 'Tasty burger',
         author: 'pashminu',
     }
@@ -39,24 +39,30 @@ const tilesData = [
 
 class Template extends Component {
     render() {
+        const { tileState, handleCheck, templates } = this.props
         return (
             <div>
                 <h2> New Workout </h2>
                 <h3> PICK A TEMPLATE </h3> 
                 <div style={styles.root}>
                     <GridList
-                    cellHeight={150}
-                    cols={3}
-                    style={styles.gridList}
+                        cellHeight={150}
+                        cols={3}
+                        style={styles.gridList}
                     >
                     <Subheader>Choose 1</Subheader>
-                    {tilesData.map((tile) => (
+                    {templates.map((template, i) => (
                         <GridTile
-                        key={tile.img}
-                        title={tile.title}
-                        subtitle={<b>Template Description</b>}
+                            key={i}
+                            title={template.name.split('_').join(' ')}
+                            subtitle={<b>Template Description</b>}
+                            actionIcon={
+                                <Checkbox
+                                    disabled={tileState.checked && i !== tileState.index}
+                                    onCheck={(event, isInputChecked) => handleCheck(event, isInputChecked, i, template.id) } 
+                                />}
                         >
-                        <img src={tile.img} />
+                        <img src={tilesData[i].img} />
                         </GridTile>
                     ))}
                     </GridList>

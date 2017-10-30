@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import Checkbox from 'material-ui/Checkbox';
 
 const styles = {
     root: {
@@ -11,59 +11,73 @@ const styles = {
       justifyContent: 'space-around',
     },
     gridList: {
-      width: 700,
-      height: 250,
-      overflowY: 'auto',
+      display: 'flex',
+      flexWrap: 'nowrap',
+      overflowX: 'auto'
     },
-}
-
-const tilesData = [
-    {
-      img: 'images/grid-list/00-52-29-429_640.jpg',
-      title: 'Breakfast',
-      author: 'jill111',
+    titleStyle: {
+      color: 'rgb(0, 188, 212)',
     },
-    {
-      img: 'images/grid-list/burger-827309_640.jpg',
-      title: 'Tasty burger',
-      author: 'pashminu',
-    },
-    {
-        img: 'images/grid-list/burger-827309_640.jpg',
-        title: 'Tasty burger',
-        author: 'pashminu',
-    }
+};
 
-]
+// const tilesData = [
+//     {
+//       img: 'images/grid-list/00-52-29-429_640.jpg',
+//       title: 'Breakfast',
+//       author: 'jill111',
+//     },
+//     {
+//       img: 'images/grid-list/burger-827309_641.jpg',
+//       title: 'Tasty burger',
+//       author: 'pashminu',
+//     },
+//     {
+//         img: 'images/grid-list/burger-827309_642.jpg',
+//         title: 'Tasty burger',
+//         author: 'pashminu',
+//     }
 
+// ]
+
+const img = require('../images/fit2.png')
 
 class Motion extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            motionsForBody: []
+        }
+    }
+    componentWillMount() {
+        const { bodyId, data, motionNames, partSelected } = this.props
+        const motionsForBody = data.filter(item => item.body_part === partSelected).map(item => ({name: item.name, img}))
+        this.setState({motionsForBody})
+    }
     render() {
+        const { motionState, handleMotionCheck } = this.props
         return (
             <div>
-                <h3> CREATE YOUR OWN WORKOUT </h3> 
-                <h4> 1. CHOOSE MOTION </h4>
+                <h4> 2. CHOOSE MOTION </h4>
                 <div style={styles.root}>
-                    <GridList
-                    cellHeight={150}
-                    cols={3}
-                    style={styles.gridList}
-                    >
-                    <Subheader>Step 1</Subheader>
-                    {tilesData.map((tile) => (
+                    <GridList style={styles.gridList} cols={2.2}>
+                    {this.state.motionsForBody.map((motion, i) => (
                         <GridTile
-                        key={tile.img}
-                        title={tile.title}
-                        subtitle={<span><b>{tile.author}</b></span>}
+                            key={i}
+                            title={motion.name}
+                            actionIcon={
+                                <Checkbox
+                                    disabled={motionState.checked && i !== motionState.index}
+                                    onCheck={(event, isInputChecked) => handleMotionCheck(event, isInputChecked, i, motion.name) } 
+                                />}
+                            titleStyle={styles.titleStyle}
+                            titleBackground="gray"
                         >
-                        <img src={tile.img} />
+                        <img src={motion.img} />
                         </GridTile>
                     ))}
                     </GridList>
-                </div>
-            
-    
             </div>
+          </div>
         )
     }
 } 

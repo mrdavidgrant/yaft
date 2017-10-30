@@ -24,12 +24,7 @@ const buttonStyle = {
 }
 
 class LiftsetForm extends Component {
-
-    state = {
-        value: 1,
-    }
     
-    handleChange = (event, index, value) => this.setState({value});
     generateList = (inputField) => {
         let list = []
         if (inputField === 'Liftsets') {
@@ -49,42 +44,32 @@ class LiftsetForm extends Component {
     }
 
     render() {
+        const { data, handleChange, handleSave } = this.props
         return (
             <div>
                 <h4>3. SET NUMBERS </h4>
                 <SelectField
-                floatingLabelText="Liftsets"
-                value={this.state.value}
-                onChange={this.handleChange}
+                    floatingLabelText="Reps"
+                    value={data.reps}
+                    onChange={(event, index, value) => {handleChange(event, index, value, 'reps')}}
                 >
-                {this.generateList('Liftsets').map(item => <MenuItem value={item} primaryText={item.toString()} />)}
+                {this.generateList('Reps').map((item, i) => <MenuItem key={i} value={item} primaryText={item.toString()} />)}
                 </SelectField>
                 <br />
-                <SelectField
-                floatingLabelText="Reps"
-                value={this.state.value}
-                onChange={this.handleChange}
-                >
-                {this.generateList('Reps').map(item => <MenuItem value={item} primaryText={item.toString()} />)}
-                </SelectField>
-                <br />
-                <div>
                     <SelectField
-                    floatingLabelText="Weight"
-                    value={this.state.value}
-                    onChange={this.handleChange}
+                        floatingLabelText="Weight"
+                        value={data.weight}
+                        onChange={(event, index, value) => {handleChange(event, index, value, 'weight')}}
                     >
-                    {this.generateList('Weights').map(item => <MenuItem value={item} primaryText={item.toString()} />)}
+                    {this.generateList('Weights').map((item, i) => <MenuItem key={i} value={item} primaryText={item.toString()} />)}
                     </SelectField>
-                    <span style = {suffixStyle} className="suffix">kg</span> 
-                </div>
                 <RaisedButton 
-                    label="Begin Workout" 
+                    label="Save" 
                     primary={false} 
                     backgroundColor='#EE773E' 
                     labelColor='#fff' 
                     style={buttonStyle}
-                    href={`/users/24X947/sessions/1/start`}
+                    onClick={() => handleSave()}
                 />
             </div>
         )
