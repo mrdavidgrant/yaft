@@ -3,6 +3,7 @@ import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Route } from 'react-router-dom'
+//import CustomEvent from './CustomEvent.js';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../styles/Calendar.css'
@@ -44,7 +45,7 @@ class Calendar extends Component {
                   events={this.props.userSessions}
                   views={views}
                   onSelectEvent={({sessionId}) => {
-                    history.push(`/users/${this.props.userId}/sessions/${sessionId}`);                        
+                    history.push(`/users/${this.props.userId}/sessions/${sessionId}`);
                   }}
               />
             </div>
@@ -59,7 +60,7 @@ class Calendar extends Component {
           </div>
         )} />
     );
-    
+
   }
 }
 

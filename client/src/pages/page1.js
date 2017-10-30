@@ -6,11 +6,11 @@ class Page1 extends Component {
     render() {
         return (
             <div>
-                <Navbar />
-                
+                <Navbar/>
+                <Login/>
             </div>
         )
     }
-} 
+}
 
 export default Page1;

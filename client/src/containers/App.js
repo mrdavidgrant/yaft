@@ -7,6 +7,8 @@ import '../styles/App.css';
 import Page1 from '../pages/page1.js';
 import Page2 from '../pages/page2.js';
 import Sessions from '../components/Sessions.js';
+import TemplateContainer from './TemplateContainer.js';
+import FreeFormContainer from './FreeFormContainer.js';
 
 // import injectTapEventPlugin from 'react-tap-event-plugin'
 
@@ -26,7 +28,6 @@ class App extends Component {
       bulldogs: []
     }
   }
-  
 
   render() {
     return (
@@ -36,6 +37,9 @@ class App extends Component {
             <Route exact path='/' component={Page1} />
             <Route exact path='/users/:user_id' component={Page2} />
             <Route path='/users/:user_id/sessions' component={Sessions} />
+            
+              <Route path='/users/:user_id/template' component={TemplateContainer} />
+              <Route path='/users/:user_id/createtemplate' component={FreeFormContainer} />
           </div>
         </MuiThemeProvider>
       </Router>
@@ -44,5 +48,3 @@ class App extends Component {
 }
 
 export default App;
-
-
