@@ -13,8 +13,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     if post_params[:liftsets].present?
       @update = post_params[:liftsets]
       @update.each do |liftset|
-        set = @activity.liftsets.new
-        set.update_attributes liftset
+        set = @activity.liftsets.create! liftset
+        # set.update_attributes liftset
       end
     end
     if @user.save
@@ -62,7 +62,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def post_params
-    params.require(:session).permit(:name, :user_id, :completed_at, :started_at, :liftsets => [:session_id, :equipment, :rest, :reps, :weight, :motion])
+    params.require(:session).permit(:name, :user_id, :completed_at, :started_at)
+    params.permit(:liftsets => [:session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
   end
 
 end
