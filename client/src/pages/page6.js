@@ -16,7 +16,7 @@ class Page6 extends Component {
         this.state = {
             path: '',
             templates: [],
-            tile: { 
+            tile: {
                 index: -1,
                 checked: false
             },
@@ -86,7 +86,7 @@ class Page6 extends Component {
                 })
             })
             .catch(e => {console.log(e)})
-        
+
         fetch('/api/v1/motions')
             .then(res => res.json())
             .then(value => {
@@ -141,7 +141,7 @@ class Page6 extends Component {
         }
         if(field === 'weight') {
             this.setState({weight: value})
-        }  
+        }
     };
 
     handleSave = () => {
@@ -153,7 +153,7 @@ class Page6 extends Component {
         const activities = this.state.activities.concat(activity)
         this.setState({
             activities,
-            tile: { 
+            tile: {
                 index: -1,
                 checked: false
             },
@@ -191,7 +191,7 @@ class Page6 extends Component {
                                     bodyParts={this.bodyParts}
                                     motionNames={motionslist}
                                     motions={motions}
-                                    partSelected={body.name} 
+                                    partSelected={body.name}
                                     handleBodyCheck={this.handleBodyCheck}
                                     handleMotionCheck={this.handleMotionCheck}
                                     motionState={motion}
@@ -202,17 +202,17 @@ class Page6 extends Component {
                                   />
                 }
                 {tile.checked && <TemplateDetails motionslist={motionslist} data={templateDetails} />}
-                <RaisedButton 
-                    label="Begin Workout" 
-                    primary={false} 
-                    backgroundColor='#EE773E' 
-                    labelColor='#fff' 
+                <RaisedButton
+                    label="Begin Workout"
+                    primary={false}
+                    backgroundColor='#EE773E'
+                    labelColor='#fff'
                     style={buttonStyle}
                     href={`/users/24X947/sessions/1/start`}
                 />
             </div>
         )
     }
-} 
+}
 
 export default Page6;
