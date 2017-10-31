@@ -4,10 +4,11 @@ import Startsession from '../components/Startsession.js';
 
 class Page5 extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
                 <Navbar/>
-                <Startsession />
+                <Startsession liftsets={this.props.location.state} />
             </div>
         )
     }

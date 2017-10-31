@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import Navbar from '../components/Navbar.js';
 import Template from '../components/Template.js';
@@ -14,6 +15,8 @@ class Page6 extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            redirect: false,
+            sessionId: 0,
             path: '',
             templates: [],
             tile: { 
@@ -144,10 +147,17 @@ class Page6 extends Component {
     };
 
     handleSave = () => {
+        
         const activity = {
             reps: this.state.reps,
             weight: this.state.weight,
-            motion: this.state.motion.name
+            motion: this.state.motion.name,
+            rest: 0,
+            started: "2017-08-28T14:30:47.000-04:00",
+            stopped: "2017-08-28T14:30:47.000-04:00",
+            motion_id: 1,
+            equipment_id: 2,
+            equipment: "Barbell"
         }
         const activities = this.state.activities.concat(activity)
         this.setState({
@@ -172,23 +182,64 @@ class Page6 extends Component {
     }
        
 
-    handleClick = (e, data) => {
+    handleClick = (e) => {
         const path = this.state.path.split('/').map(section => section === 'templates' ? 'activities' : section).join('/')
-        const url = `/api/v1/${path}`
-         data = this.state.activities
-    
-        let fetchData = { 
+        const url = `/api/v1${path}`
+
+        if(this.state.tile.checked) {
+            const templateData = {
+                session: {name: 'weights'},
+                liftsets: this.state.templateDetails.liftsets
+            }
+            return fetch(url, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(templateData)
+            }).then(res => res.json()).then(value => this.setState({redirect: true, sessionId: value.activity.id}))
+            .catch(e => console.log(e))
+        }
+
+        const data = {
+             session: {name: "weights"},
+             liftsets: this.state.activities
+         }
+
+        const dataStringified = JSON.stringify(data)
+        let fetchData = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             method: 'POST',
-            body: data
+            body: JSON.stringify(data)
         }
 
         fetch(url, fetchData)
           .then(res => res.json())
-          .then(value => this.setState({templateDetails: value}))
+          .then(value => this.setState({redirect: true, sessionId: value.activity.id}))
           .catch(e => console.log(e))
+
     }
 
     render() {
+        if(this.state.redirect) {
+            const sessionId = this.state.sessionId
+            const path = this.props.location.pathname.split('/').map(item => {
+                if(item === 'pick'){
+                    return sessionId
+                }
+                if(item === 'new') {
+                    return 'start'
+                }
+                return item
+            }).join('/')
+            
+            return <Redirect to={{pathname: path, state: this.state.tile.checked ? this.state.templateDetails.liftsets : this.state.activities}} />
+        }
+
         const { set, reps, weight, templates, tile, templateDetails, body, motion, motions, motionslist } = this.state;
         const liftSetData = {
             set,
@@ -200,19 +251,19 @@ class Page6 extends Component {
                 <Navbar />
                 {!body.checked && <Template templates={templates} handleCheck={this.handleCheck} tileState={tile} />}
                 {!tile.checked && <OwnTemplate
-                                    bodyChecked={body.checked}
-                                    motionChecked={motion.checked}
-                                    bodyParts={this.bodyParts}
-                                    motionNames={motionslist}
-                                    motions={motions}
-                                    partSelected={body.name} 
-                                    handleBodyCheck={this.handleBodyCheck}
-                                    handleMotionCheck={this.handleMotionCheck}
-                                    motionState={motion}
-                                    bodyState={body}
-                                    handleLiftsetChange={this.handleLiftsetChange}
-                                    liftSetData={liftSetData}
-                                    handleSave={this.handleSave}
+                                        bodyChecked={body.checked}
+                                        motionChecked={motion.checked}
+                                        bodyParts={this.bodyParts}
+                                        motionNames={motionslist}
+                                        motions={motions}
+                                        partSelected={body.name} 
+                                        handleBodyCheck={this.handleBodyCheck}
+                                        handleMotionCheck={this.handleMotionCheck}
+                                        motionState={motion}
+                                        bodyState={body}
+                                        handleLiftsetChange={this.handleLiftsetChange}
+                                        liftSetData={liftSetData}
+                                        handleSave={this.handleSave}
                                   />
                 }
                 {tile.checked && <TemplateDetails motionslist={motionslist} data={templateDetails} />}

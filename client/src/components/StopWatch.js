@@ -2,21 +2,16 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
-
-const buttonStyle = {
-    width: '100px',
-    height: '100px',
-  }
   
-  const buttonContainerStyle = {
-    width: '50%',
+const buttonContainerStyle = {
     display: 'flex',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+    marginRight: '20px'
+}
 
-class StopWatch extends React.Component {
-    constructor() {
-        super()
+class StopWatch extends Component {
+    constructor(props) {
+        super(props)
         this.state = {}
         this.time = null;
         this.intervalId = null;
@@ -26,15 +21,15 @@ class StopWatch extends React.Component {
 
     componentDidMount() {
         this.initializeTime()
-        this.createInterval()
-      }
+        // this.createInterval()
+    }
     
-      initializeTime = () => {
+    initializeTime = () => {
         this.time = 0;
         this.setState({
-          currentTime: this.formatTime(this.getTime())
+            currentTime: this.formatTime(this.getTime())
         })
-      }
+    }
     
       createInterval() {
         this.intervalId = setInterval(this.updateTime, 100);
@@ -61,7 +56,7 @@ class StopWatch extends React.Component {
       }
 
       playTime = () => {
-        if (!this.state.toggle) {
+        if (this.state.toggle) {
           this.pauseTime()
         } else {
           this.startTime()
@@ -91,28 +86,25 @@ class StopWatch extends React.Component {
       }
     
       render(){
-
-        var toggleText = !this.state.toggle
+        const toggleText = this.state.toggle
         ? "STOP"
         : "START";
-  
-      return (
-        <div className="mdl-cell mdl-cell--12-col">
-          <div>
-            <div className="mdl-card__title--expand">
-              <h1 ref="time" className='p-5 m-0' id='time'>{this.state.currentTime}</h1>
-            </div>
 
+      return (
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <div className="buttonContainer" style={buttonContainerStyle}>
-                <FloatingActionButton className="floatingButton" secondary={false} style={buttonStyle} onClick={this.playTime}>
-                  {toggleText}    
+                <FloatingActionButton className="floatingButton" onClick={(e) => {
+                    this.props.onclick(); this.playTime()
+                    }}>
+                    <div style={{width: '100px', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center'}} >
+                        <p style={{fontSize: '20px', margin: '0'}}>{toggleText}</p>
+                    </div>
                 </FloatingActionButton>
             </div>
-
-            <RaisedButton label="RESET" primary={false} backgroundColor='#EE773E' labelColor='#fff' onClick={this.resetTime} />
+            <div>
+              <h1 ref="time" className='p-5 m-0' id='time'>{this.state.currentTime}</h1>
             </div>
-            
-          </div>
+        </div>
         )
       }
     }
