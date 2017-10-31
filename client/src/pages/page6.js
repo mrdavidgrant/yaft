@@ -251,6 +251,7 @@ class Page6 extends Component {
                 <Navbar />
                 {!body.checked && <Template templates={templates} handleCheck={this.handleCheck} tileState={tile} />}
                 {!tile.checked && <OwnTemplate
+<<<<<<< HEAD
                                         bodyChecked={body.checked}
                                         motionChecked={motion.checked}
                                         bodyParts={this.bodyParts}
@@ -264,6 +265,21 @@ class Page6 extends Component {
                                         handleLiftsetChange={this.handleLiftsetChange}
                                         liftSetData={liftSetData}
                                         handleSave={this.handleSave}
+=======
+                                    bodyChecked={body.checked}
+                                    motionChecked={motion.checked}
+                                    bodyParts={this.bodyParts}
+                                    motionNames={motionslist}
+                                    motions={motions}
+                                    partSelected={body.name}
+                                    handleBodyCheck={this.handleBodyCheck}
+                                    handleMotionCheck={this.handleMotionCheck}
+                                    motionState={motion}
+                                    bodyState={body}
+                                    handleLiftsetChange={this.handleLiftsetChange}
+                                    liftSetData={liftSetData}
+                                    handleSave={this.handleSave}
+>>>>>>> develop
                                   />
                 }
                 {tile.checked && <TemplateDetails motionslist={motionslist} data={templateDetails} />}
@@ -279,8 +295,11 @@ class Page6 extends Component {
         )
     }
 }
+<<<<<<< HEAD
 
 export default Page6;
 
 
+=======
+>>>>>>> develop
 
