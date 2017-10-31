@@ -12,11 +12,11 @@ class Page2 extends Component {
         const userId = this.props.match.params.user_id
         return (
             <div style={style}>
-                <Navbar />
+                <Navbar userId={userId}/>
                 <ProfileContainer userId={userId} />
             </div>
         )
     }
-} 
+}
 
 export default Page2;
