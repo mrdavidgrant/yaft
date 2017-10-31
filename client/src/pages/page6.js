@@ -19,7 +19,7 @@ class Page6 extends Component {
             sessionId: 0,
             path: '',
             templates: [],
-            tile: { 
+            tile: {
                 index: -1,
                 checked: false
             },
@@ -89,7 +89,7 @@ class Page6 extends Component {
                 })
             })
             .catch(e => {console.log(e)})
-        
+
         fetch('/api/v1/motions')
             .then(res => res.json())
             .then(value => {
@@ -143,11 +143,11 @@ class Page6 extends Component {
         }
         if(field === 'weight') {
             this.setState({weight: value})
-        }  
+        }
     };
 
     handleSave = () => {
-        
+
         const activity = {
             reps: this.state.reps,
             weight: this.state.weight,
@@ -162,7 +162,7 @@ class Page6 extends Component {
         const activities = this.state.activities.concat(activity)
         this.setState({
             activities,
-            tile: { 
+            tile: {
                 index: -1,
                 checked: false
             },
@@ -180,7 +180,7 @@ class Page6 extends Component {
             weight: 0
         })
     }
-       
+
 
     handleClick = (e) => {
         const path = this.state.path.split('/').map(section => section === 'templates' ? 'activities' : section).join('/')
@@ -236,7 +236,7 @@ class Page6 extends Component {
                 }
                 return item
             }).join('/')
-            
+
             return <Redirect to={{pathname: path, state: this.state.tile.checked ? this.state.templateDetails.liftsets : this.state.activities}} />
         }
 
@@ -256,7 +256,7 @@ class Page6 extends Component {
                                         bodyParts={this.bodyParts}
                                         motionNames={motionslist}
                                         motions={motions}
-                                        partSelected={body.name} 
+                                        partSelected={body.name}
                                         handleBodyCheck={this.handleBodyCheck}
                                         handleMotionCheck={this.handleMotionCheck}
                                         motionState={motion}
@@ -267,18 +267,18 @@ class Page6 extends Component {
                                   />
                 }
                 {tile.checked && <TemplateDetails motionslist={motionslist} data={templateDetails} />}
-                <RaisedButton 
-                    label="Begin Workout" 
-                    primary={false} 
-                    backgroundColor='#EE773E' 
-                    labelColor='#fff' 
+                <RaisedButton
+                    label="Begin Workout"
+                    primary={false}
+                    backgroundColor='#EE773E'
+                    labelColor='#fff'
                     style={buttonStyle}
                     onClick={this.handleClick}
                 />
             </div>
         )
     }
-} 
+}
 
 export default Page6;
 

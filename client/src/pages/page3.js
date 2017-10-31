@@ -7,11 +7,11 @@ class Page3 extends Component {
         const userId = this.props.match.params.user_id
         return (
             <div className="page3">
-                <Navbar />
+                <Navbar userId={userId}/>
                 <Exerciselog userId={userId} />
             </div>
         )
     }
-} 
+}
 
 export default Page3;

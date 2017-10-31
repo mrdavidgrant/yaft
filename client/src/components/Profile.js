@@ -11,7 +11,8 @@ import '../styles/Profile.css'
 import AvatarImage from './AvatarImage.js';
 
 const datePickerStyle = {
-  backgroundColor: '#FFF'
+  backgroundColor: '#FFF',
+  width: '120px'
 }
 
 const buttonStyle = {
@@ -19,10 +20,10 @@ const buttonStyle = {
   display: 'flex'
 }
 
-const editProfileButtonStyle = {
-  width: '120px',
-  paddingTop: '5px'
-}
+// const editProfileButtonStyle = {
+//   width: '120px',
+//   paddingTop: '5px'
+// }
 
 const raiseButtonStyle = {
   height: '25px',
@@ -42,9 +43,9 @@ class Profile extends Component {
       value: 1,
     }
   }
-  
+
   handleChange = (event, index, value) => this.setState({value});
-  
+
   render() {
     const {user} = this.props
     const userInfo = {
@@ -52,7 +53,6 @@ class Profile extends Component {
       lastName: user.last_name ? user.last_name : 'Last Name',
       userName: user.display_name ? user.display_name : 'Username',
       dOfB: user.dob ? user.dob : 'Date of Birth',
-      gender: user.gender ? user.gender : 'Gender',
       height: user.height_cm ? user.height_cm : 'Height',
       weight: user.weight_kg ? user.weight_kg : 'Weight',
       img: user.avatar ? user.avatar : img,
@@ -67,14 +67,18 @@ class Profile extends Component {
                 <div className="topLeftContainer">
                   <TextField
                     floatingLabelText={userInfo.firstName}
-                    style={{marginRight: '30px'}}
+                    style={{marginRight: '30px', width: '120px'}}
                     disabled
                   /> <br />
                   <TextField
                     floatingLabelText={userInfo.lastName}
+                    style={{marginRight: '30px', width: '130%'}}
+                    disabled
                   /><br />
                   <TextField
                     floatingLabelText={userInfo.userName}
+                    style={{marginRight: '30px', width: '130%'}}
+                    disabled
                   /><br />
                 </div>
 
@@ -87,61 +91,56 @@ class Profile extends Component {
                       }
                     />
                   </List>
-                  <RaisedButton 
-                      label="Edit Profile" 
-                      primary={false} 
-                      backgroundColor='#EE773E' 
-                      labelColor='#fff' 
+                  {/* <RaisedButton
+                      label="Edit Profile"
+                      primary={false}
+                      backgroundColor='#EE773E'
+                      labelColor='#fff'
                       buttonStyle={editProfileButtonStyle}
                       style={raiseButtonStyle}
-                  />
+                  /> */}
                 </div>
             </div>
 
             <div className="bottomContainer">
-              <DatePicker
-                  dialogContainerStyle={datePickerStyle}
-                  hintText={userInfo.dOfB}
-                  openToYearSelection={true}
-              /><br/>
-              <SelectField
-                value={this.state.value}
-                onChange={this.handleChange}
-              >
-                <MenuItem value={1} primaryText="Gender"/>
-                <MenuItem value={2} primaryText="Male" />
-                <MenuItem value={3} primaryText="Female" />
-              </SelectField> <br />
+            <TextField
+            floatingLabelText={userInfo.dOfB}
+            style={{marginRight: '30px', width: '97%'}}
+            disabled
+          /> <br />
               <div className="height">
               <TextField
                 floatingLabelText={userInfo.height}
-                style={{marginRight: '30px'}}
+                style={{marginRight: '30px', width: '97%'}}
+                disabled
               />
-              <span className="suffix">cm</span> 
+              <span className="suffix">cm</span>
               </div>
               <div className="weight">
                 <TextField
                   floatingLabelText={userInfo.weight}
+                  style={{marginRight: '30px', width: '97%'}}
+                  disabled
                 />
-                <span className="suffix">kg</span> 
+                <span className="suffix">kg</span>
               </div>
               <br />
             </div>
           </div>
 
-          <RaisedButton 
-              label="Start New Workout" 
-              primary={false} 
-              backgroundColor='#EE773E' 
-              labelColor='#fff' 
+          <RaisedButton
+              label="Start New Workout"
+              primary={false}
+              backgroundColor='#EE773E'
+              labelColor='#fff'
               style={buttonStyle}
               href={`/users/${userInfo.userId}/sessions/pick/new`}
           />
-          <RaisedButton 
-              label="View Workout History" 
-              primary={false} 
-              backgroundColor='#EE773E' 
-              labelColor='#fff' 
+          <RaisedButton
+              label="View Workout History"
+              primary={false}
+              backgroundColor='#EE773E'
+              labelColor='#fff'
               style={buttonStyle}
               href={`/users/${userInfo.userId}/sessions`}
           />
