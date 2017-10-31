@@ -6,6 +6,7 @@ class Liftset < ApplicationRecord
   def as_json(*args)
     output = self.attributes.select { |k,v| !%w(created_at updated_at).include?(k) }
     output[:motion] = motion.name
+    output[:image] = motion.image
     output[:equipment] = equipment.name if equipment
     output
   end
