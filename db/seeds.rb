@@ -258,7 +258,7 @@ workout.liftsets.create([
   }
 ])
 
-template = @testy.sessions.create ({name: 'Arnold_Chest_Back', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true})
+template = @testy.sessions.create ({name: 'Arnold_Chest_Back', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true, notes: "Arnold Schwarzenegger's Mammoth Chest And Back Workout. Basic exercises, heavy weights, high volume, and high frequency are the techniques Arnold Schwarzenegger used to build his massive chest and back. Try the workout!"})
 template.liftsets.create([
   {
     "motion_id":1, "reps":12, "rest":90, "equipment_id":2
@@ -391,7 +391,7 @@ template.liftsets.create([
   }
 ])
 
-template = @testy.sessions.create ({name: 'Arnold_Shoulders_Arms', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true})
+template = @testy.sessions.create ({name: 'Arnold_Shoulders_Arms', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true, notes: "Arnold's Blueprint For Mammoth Shoulders And Arms. No bodybuilder was as renowned as Arnold for his huge arms and massive delts. And no bodybuilder trained as hard. Here's a peek at how Arnold's high-volume, high-frequency approach made him the world's greatest bodybuilder."})
 template.liftsets.create([
   {
     "motion_id":24, "reps":12, "rest":90, "equipment_id":2
@@ -500,7 +500,7 @@ template.liftsets.create([
   },
 ])
 
-template = @testy.sessions.create ({name: "MH 20 Min KB", template: true})
+template = @testy.sessions.create ({name: "MH 20 Min KB", template: true, notes: "For when time is of the essence"})
 template.liftsets.create([
   {
     "motion_id":17, "reps":5, "weight":35, "rest":60, "equipment_id":4

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031182322) do
+ActiveRecord::Schema.define(version: 20171031215811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20171031182322) do
     t.boolean "template", default: false
     t.bigint "body_parts_id"
     t.datetime "started_at"
+    t.text "notes"
     t.index ["body_parts_id"], name: "index_sessions_on_body_parts_id"
   end
 
