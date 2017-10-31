@@ -12,72 +12,115 @@ Equipment.create(name: 'Dumbell')
 Equipment.create(name: 'Kettlebell')
 Equipment.create(name: 'Smith Machine')
 
-chest = BodyPart.create(name: 'chest')
-back = BodyPart.create(name: 'back')
-arms = BodyPart.create(name: 'arms')
-shoulders = BodyPart.create(name: 'shoulders')
-legs = BodyPart.create(name: 'legs')
+chest = BodyPart.create(name: 'chest', image: 'chest.jpg')
+back = BodyPart.create(name: 'back', image: 'back.jpg')
+arms = BodyPart.create(name: 'arms', image: 'arms.jpg')
+shoulders = BodyPart.create(name: 'shoulders', image: 'shoulders.jpg')
+legs = BodyPart.create(name: 'legs', image: 'legs.jpg')
+core = BodyPart.create(name: 'core', image: 'core.jpg')
 
 chest.motions.create([{
-  name: 'Bench Press'
+  name: 'Bench Press',
+  image: 'benchpress.jpg'
 },{
-  name: 'Incline Bench Press'
+  name: 'Incline Bench Press',
+  image: 'inclinebenchpress.jpg'
 },{
-  name: 'Flye'
+  name: 'Flye',
+  image: 'flye.jpg'
 },{
-  name: 'Chest Dip'
+  name: 'Chest Dip',
+  image: 'chestdip.jpg'
 },{
-  name: 'Pulldown Flye'
+  name: 'Pulldown Flye',
+  image: 'pulldownflye.jpg'
+},{
+  name: 'Pushup',
+  image: 'pushup.jpg'
 }])
 
 back.motions.create([{
-  name: 'Back Pulldown'
+  name: 'Back Pulldown',
+  image: 'backpulldown.jpg'
 },{
-  name: 'Front Pulldown'
+  name: 'Front Pulldown',
+  image: 'frontpulldown.jpg'
 },{
-  name: 'T Bar Row'
+  name: 'T Bar Row',
+  image: 'tbarrow.jpg'
 },{
-  name: 'Bent Over Row'
+  name: 'Bent Over Row',
+  image: 'bentoverrow.jpg'
 },{
-  name: 'Seated Cable Row'
+  name: 'Seated Cable Row',
+  image: 'seatedcablerow.jpg'
 }])
 
 legs.motions.create([{
-  name: 'Squat'
+  name: 'Squat',
+  image: 'squat.jpg'
 },{
-  name: 'Leg Extension'
+  name: 'Leg Extension',
+  image: 'legextension.jpg'
 },{
-  name: 'Leg Curl'
+  name: 'Leg Curl',
+  image: 'legcurl.jpg'
 },{
-  name: 'Deadlift'
+  name: 'Deadlift',
+  image: 'deadlift.jpg'
 },{
-  name: 'Calf Extension'
+  name: 'Calf Extension',
+  image: 'calfextension.jpg'
+},{
+  name: 'Romanian Deadlift',
+  image: 'romaniandeadlift.jpg'
 }])
 
 arms.motions.create([{
-  name: 'Bicep Curl'
+  name: 'Bicep Curl',
+  image: 'bicepcurl.jpg'
 },{
-  name: 'Tri Pushdown'
+  name: 'Tri Pushdown',
+  image: 'tripushdown.jpg'
 },{
-  name: 'Incline Curl'
+  name: 'Incline Curl',
+  image: 'inclinecurl.jpg'
 },{
-  name: 'Tri Extension'
+  name: 'Tri Extension',
+  image: 'triextension.jpg'
 },{
-  name: 'Concentration Curl'
+  name: 'Concentration Curl',
+  image: 'concentrationcurl.jpg'
 },{
-  name: 'Bench Dips'
+  name: 'Bench Dips',
+  image: 'benchdips.jpg'
 }])
 
 shoulders.motions.create([{
-  name: 'Military Press'
+  name: 'Military Press',
+  image: 'militarypress.jpg'
 },{
-  name: 'Side Lat Raise'
+  name: 'Side Lat Raise',
+  image: 'sidelatraise.jpg'
 },{
   name: 'Front Lat Raise'
 },{
-  name: 'Shrug'
+  name: 'Shrug',
+  image: 'shrug.jpg'
 },{
-  name: 'Upright Row'
+  name: 'Upright Row',
+  image: 'uprightrow.jpg'
+}])
+
+core.motions.create([{
+  name: 'Kettlebell Swing',
+  image: 'kettlebellswing.jpg'
+},{
+  name: 'Crunch',
+  image: 'crunch.jpg'
+},{
+  name: 'Sit-Up',
+  image: 'situp.jpg'
 }])
 
 @testy = User.create(display_name: 'David G.', user_id: '24X947', age: 40, avatar: "https://d6y8zfzc2qfsl.cloudfront.net/5BCEC0FC-8CC3-EC4A-DD43-83C2727D8768_profile_100_square.jpg", dob: "1977-06-11", first_name: "David", last_name: "Grant", full_name: "David Grant", gender: 'MALE', height_cm: 188, weight_kg: 95)
@@ -151,67 +194,67 @@ workout.liftsets.create([
     "motion_id":5, "reps":6, "rest":270, "weight":30, "equipment_id":1
   },
   {
-    "motion_id":6, "reps":12, "rest":90, "weight":77, "equipment_id":1
+    "motion_id":7, "reps":12, "rest":90, "weight":77, "equipment_id":1
   },
   {
-    "motion_id":6, "reps":10, "rest":90, "weight":88, "equipment_id":1
+    "motion_id":7, "reps":10, "rest":90, "weight":88, "equipment_id":1
   },
   {
-    "motion_id":6, "reps":8, "rest":90, "weight":99, "equipment_id":1
+    "motion_id":7, "reps":8, "rest":90, "weight":99, "equipment_id":1
   },
   {
-    "motion_id":6, "reps":8, "rest":270, "weight":110, "equipment_id":1
+    "motion_id":7, "reps":8, "rest":270, "weight":110, "equipment_id":1
   },
   {
-    "motion_id":7, "reps":15, "rest":90, "weight":77, "equipment_id":1
+    "motion_id":8, "reps":15, "rest":90, "weight":77, "equipment_id":1
   },
   {
-    "motion_id":7, "reps":12, "rest":90, "weight":88, "equipment_id":1
+    "motion_id":8, "reps":12, "rest":90, "weight":88, "equipment_id":1
   },
   {
-    "motion_id":7, "reps":10, "rest":90, "weight":99, "equipment_id":1
+    "motion_id":8, "reps":10, "rest":90, "weight":99, "equipment_id":1
   },
   {
-    "motion_id":7, "reps":8, "rest":90, "weight":110, "equipment_id":1
+    "motion_id":8, "reps":8, "rest":90, "weight":110, "equipment_id":1
   },
   {
-    "motion_id":7, "reps":8, "rest":270, "weight":121, "equipment_id":1
+    "motion_id":8, "reps":8, "rest":270, "weight":121, "equipment_id":1
   },
   {
-    "motion_id":8, "reps":12, "rest":90, "weight":28, "equipment_id":2
+    "motion_id":9, "reps":12, "rest":90, "weight":28, "equipment_id":2
   },
   {
-    "motion_id":8, "reps":10, "rest":90, "weight":53, "equipment_id":2
+    "motion_id":9, "reps":10, "rest":90, "weight":53, "equipment_id":2
   },
   {
-    "motion_id":8, "reps":8, "rest":90, "weight":78, "equipment_id":2
+    "motion_id":9, "reps":8, "rest":90, "weight":78, "equipment_id":2
   },
   {
-    "motion_id":8, "reps":6, "rest":270, "weight":103, "equipment_id":2
+    "motion_id":9, "reps":6, "rest":270, "weight":103, "equipment_id":2
   },
   {
-    "motion_id":9, "reps":12, "rest":90, "weight":60, "equipment_id":2
+    "motion_id":10, "reps":12, "rest":90, "weight":60, "equipment_id":2
   },
   {
-    "motion_id":9, "reps":10, "rest":90, "weight":70, "equipment_id":2
+    "motion_id":10, "reps":10, "rest":90, "weight":70, "equipment_id":2
   },
   {
-    "motion_id":9, "reps":8, "rest":90, "weight":80, "equipment_id":2
+    "motion_id":10, "reps":8, "rest":90, "weight":80, "equipment_id":2
   },
   {
-    "motion_id":9, "reps":6, "rest":270, "weight":100, "equipment_id":2
+    "motion_id":10, "reps":6, "rest":270, "weight":100, "equipment_id":2
   },
   {
-    "motion_id":10, "reps":12, "rest":90, "weight":77, "equipment_id":2
+    "motion_id":11, "reps":12, "rest":90, "weight":77, "equipment_id":2
   },
   {
-    "motion_id":10, "reps":12, "rest":90, "weight":88, "equipment_id":2
+    "motion_id":11, "reps":12, "rest":90, "weight":88, "equipment_id":2
   },
   {
-    "motion_id":10, "reps":10, "rest":90, "weight":99, "equipment_id":2
+    "motion_id":11, "reps":10, "rest":90, "weight":99, "equipment_id":2
   },
   {
-    "motion_id":10, "reps":6, "rest":270, "weight":110, "equipment_id":2
+    "motion_id":11, "reps":6, "rest":270, "weight":110, "equipment_id":2
   }
 ])
 
@@ -284,21 +327,6 @@ template.liftsets.create([
     "motion_id":5, "reps":6, "rest":270, "equipment_id":1
   },
   {
-    "motion_id":6, "reps":12, "rest":90, "equipment_id":1
-  },
-  {
-    "motion_id":6, "reps":10, "rest":90, "equipment_id":1
-  },
-  {
-    "motion_id":6, "reps":8, "rest":90, "equipment_id":1
-  },
-  {
-    "motion_id":6, "reps":8, "rest":270, "equipment_id":1
-  },
-  {
-    "motion_id":7, "reps":15, "rest":90, "equipment_id":1
-  },
-  {
     "motion_id":7, "reps":12, "rest":90, "equipment_id":1
   },
   {
@@ -311,16 +339,19 @@ template.liftsets.create([
     "motion_id":7, "reps":8, "rest":270, "equipment_id":1
   },
   {
-    "motion_id":8, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":8, "reps":15, "rest":90, "equipment_id":1
   },
   {
-    "motion_id":8, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":8, "reps":12, "rest":90, "equipment_id":1
   },
   {
-    "motion_id":8, "reps":8, "rest":90, "equipment_id":2
+    "motion_id":8, "reps":10, "rest":90, "equipment_id":1
   },
   {
-    "motion_id":8, "reps":6, "rest":270, "equipment_id":2
+    "motion_id":8, "reps":8, "rest":90, "equipment_id":1
+  },
+  {
+    "motion_id":8, "reps":8, "rest":270, "equipment_id":1
   },
   {
     "motion_id":9, "reps":12, "rest":90, "equipment_id":2
@@ -338,126 +369,182 @@ template.liftsets.create([
     "motion_id":10, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":10, "reps":12, "rest":90, "equipment_id":2
-  },
-  {
     "motion_id":10, "reps":10, "rest":90, "equipment_id":2
   },
   {
+    "motion_id":10, "reps":8, "rest":90, "equipment_id":2
+  },
+  {
     "motion_id":10, "reps":6, "rest":270, "equipment_id":2
+  },
+  {
+    "motion_id":11, "reps":12, "rest":90, "equipment_id":2
+  },
+  {
+    "motion_id":11, "reps":12, "rest":90, "equipment_id":2
+  },
+  {
+    "motion_id":11, "reps":10, "rest":90, "equipment_id":2
+  },
+  {
+    "motion_id":11, "reps":6, "rest":270, "equipment_id":2
   }
 ])
 
 template = @testy.sessions.create ({name: 'Arnold_Shoulders_Arms', created_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00', template: true})
 template.liftsets.create([
   {
-    "motion_id":22, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":24, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":22, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":24, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":22, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":24, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":22, "reps":8, "rest":270, "equipment_id":2
+    "motion_id":24, "reps":8, "rest":270, "equipment_id":2
   },
   {
-    "motion_id":23, "reps":12, "rest":90, "equipment_id":3
+    "motion_id":25, "reps":12, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":23, "reps":12, "rest":90, "equipment_id":3
+    "motion_id":25, "reps":12, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":23, "reps":10, "rest":90, "equipment_id":3
+    "motion_id":25, "reps":10, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":23, "reps":8, "rest":270, "equipment_id":3
+    "motion_id":25, "reps":8, "rest":270, "equipment_id":3
   },
   {
-    "motion_id":22, "reps":12, "rest":90, "equipment_id":5
+    "motion_id":24, "reps":12, "rest":90, "equipment_id":5
   },
   {
-    "motion_id":22, "reps":10, "rest":90, "equipment_id":5
+    "motion_id":24, "reps":10, "rest":90, "equipment_id":5
   },
   {
-    "motion_id":22, "reps":10, "rest":90, "equipment_id":5
+    "motion_id":24, "reps":10, "rest":90, "equipment_id":5
   },
   {
-    "motion_id":22, "reps":8, "rest":270, "equipment_id":5
+    "motion_id":24, "reps":8, "rest":270, "equipment_id":5
   },
   {
-    "motion_id":24, "reps":12, "rest":90, "equipment_id":3
+    "motion_id":26, "reps":12, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":24, "reps":10, "rest":90, "equipment_id":3
+    "motion_id":26, "reps":10, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":24, "reps":10, "rest":270, "equipment_id":3
+    "motion_id":26, "reps":10, "rest":270, "equipment_id":3
   },
   {
-    "motion_id":26, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":28, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":26, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":28, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":26, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":28, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":26, "reps":8, "rest":270, "equipment_id":2
+    "motion_id":28, "reps":8, "rest":270, "equipment_id":2
   },
   {
-    "motion_id":16, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":18, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":16, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":18, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":16, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":18, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":16, "reps":10, "rest":270, "equipment_id":2
+    "motion_id":18, "reps":10, "rest":270, "equipment_id":2
   },
   {
-    "motion_id":19, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":21, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":19, "reps":12, "rest":90, "equipment_id":2
+    "motion_id":21, "reps":12, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":19, "reps":10, "rest":90, "equipment_id":2
+    "motion_id":21, "reps":10, "rest":90, "equipment_id":2
   },
   {
-    "motion_id":19, "reps":10, "rest":270, "equipment_id":2
+    "motion_id":21, "reps":10, "rest":270, "equipment_id":2
   },
   {
-    "motion_id":16, "reps":12, "rest":0, "equipment_id":3
+    "motion_id":18, "reps":12, "rest":0, "equipment_id":3
   },
   {
-    "motion_id":17, "reps":12, "rest":90, "equipment_id":3
+    "motion_id":19, "reps":12, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":16, "reps":12, "rest":0, "equipment_id":3
+    "motion_id":18, "reps":12, "rest":0, "equipment_id":3
   },
   {
-    "motion_id":17, "reps":12, "rest":90, "equipment_id":3
+    "motion_id":19, "reps":12, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":16, "reps":10, "rest":0, "equipment_id":3
+    "motion_id":18, "reps":10, "rest":0, "equipment_id":3
   },
   {
-    "motion_id":17, "reps":10, "rest":90, "equipment_id":3
+    "motion_id":19, "reps":10, "rest":90, "equipment_id":3
   },
   {
-    "motion_id":16, "reps":10, "rest":0, "equipment_id":3
+    "motion_id":18, "reps":10, "rest":0, "equipment_id":3
   },
   {
-    "motion_id":17, "reps":10, "rest":270, "equipment_id":3
+    "motion_id":19, "reps":10, "rest":270, "equipment_id":3
   },
 ])
 
-
+template = @testy.sessions.create ({name: "MH 20 Min KB", template: true})
+template.liftsets.create([
+  {
+    "motion_id":17, "reps":5, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":17, "reps":5, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":17, "reps":5, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
+  },
+  {
+    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
+  },
+  {
+    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
+  },
+  {
+    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
+  },
+  {
+    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
+  },
+  {
+    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
+  },
+  {
+    "motion_id":6, "reps":10, "rest":60, "equipment_id":3
+  },
+])
 
 
 
