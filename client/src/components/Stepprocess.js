@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Step, Stepper, StepButton, StepContent} from 'material-ui/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import '../styles/Stepprocess.css';
 
 
@@ -11,20 +10,6 @@ const style = {
   height: '100vh'
 }
 
-const buttonStyle = {
-  width: '100px',
-  height: '100px',
-}
-
-const buttonContainerStyle = {
-  width: '50%',
-  display: 'flex',
-  justifyContent: 'center'
-}
-
-// handleClick = (event) = {   
-
-// }
 
 class Stepprocess extends Component {
     state = {
@@ -74,11 +59,6 @@ class Stepprocess extends Component {
       
         return (
             <div className="stepContainer" style={style}>
-              <div className="buttonContainer" style={buttonContainerStyle}>
-                <FloatingActionButton className="floatingButton" secondary={false} style={buttonStyle}>
-                  START
-                </FloatingActionButton>
-              </div>
               <div style={{maxWidth: 400, maxHeight: 400, margin: 'auto'}}>
                 <Stepper
                   activeStep={stepIndex}

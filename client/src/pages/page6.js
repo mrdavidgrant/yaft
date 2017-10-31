@@ -98,7 +98,6 @@ class Page6 extends Component {
     }
 
     handleCheck = (event, isInputChecked, i, template_id) => {
-        console.log(`/api/v1/${this.state.path}/${template_id}`)
         fetch(`/api/v1/${this.state.path}/${template_id}`)
           .then(res => res.json())
           .then(value => this.setState({templateDetails: value}))
@@ -171,10 +170,25 @@ class Page6 extends Component {
             weight: 0
         })
     }
+       
 
+    handleClick = (e, data) => {
+        const path = this.state.path.split('/').map(section => section === 'templates' ? 'activities' : section).join('/')
+        const url = `/api/v1/${path}`
+         data = this.state.activities
+    
+        let fetchData = { 
+            method: 'POST',
+            body: data
+        }
+
+        fetch(url, fetchData)
+          .then(res => res.json())
+          .then(value => this.setState({templateDetails: value}))
+          .catch(e => console.log(e))
+    }
 
     render() {
-        console.log(this.state.activities)
         const { set, reps, weight, templates, tile, templateDetails, body, motion, motions, motionslist } = this.state;
         const liftSetData = {
             set,
@@ -208,7 +222,7 @@ class Page6 extends Component {
                     backgroundColor='#EE773E' 
                     labelColor='#fff' 
                     style={buttonStyle}
-                    href={`/users/24X947/sessions/1/start`}
+                    onClick={this.handleClick}
                 />
             </div>
         )
@@ -216,3 +230,6 @@ class Page6 extends Component {
 } 
 
 export default Page6;
+
+
+
