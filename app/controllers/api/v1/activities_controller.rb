@@ -32,7 +32,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     @activity[:completed_at] = DateTime.now
     if liftset_params[:liftsets].present?
       @update = liftset_params[:liftsets]
-      puts liftset_params[:liftsets]
+      puts liftset_params
       @update.each do |liftset|
         set = @activity.liftsets.find(liftset[:id])
         set.update_attributes! liftset
