@@ -28,7 +28,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def update
-    puts params
+    puts post_params
+    puts liftset_params
     @activity = Session.find post_params[:id]
     @activity[:completed_at] = DateTime.now
     if liftset_params.present?
