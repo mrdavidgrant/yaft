@@ -35,14 +35,14 @@ class Startsession extends Component {
       .then(res => res.json())
       .then(value => {
       value.activity.completed_at = time.toJSON()
-      var data = {
+      var saveData = {
         session: value.activity,
         liftsets: liftsets
       }
-      console.log(data)
+      console.log(saveData)
       var request = new Request(`/api/v1/users/${this.props.userId}/activities/${this.props.sessionId}`, {
         method: 'PUT',
-        body: JSON.stringify(data)
+        body: JSON.stringify(saveData)
       })
       fetch(request)
         .then(res => {

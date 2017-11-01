@@ -11,7 +11,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     @activity = @user.sessions.create! post_params
     @activity.update_attributes! post_params
     if liftset_params.present?
-      @update = liftset_params[:liftsets]
+      @update = liftset_params
       @update.each do |liftset|
         set = @activity.liftsets.create! liftset
         # set.update_attributes liftset
@@ -28,9 +28,9 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def update
+    puts params
     @activity = Session.find post_params[:id]
     @activity[:completed_at] = DateTime.now
-    puts liftset_params
     if liftset_params.present?
       @update = liftset_params[:liftsets]
       @update.each do |liftset|
