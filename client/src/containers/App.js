@@ -37,9 +37,8 @@ class App extends Component {
             <Route exact path='/' component={Page1} />
             <Route exact path='/users/:user_id' component={Page2} />
             <Route path='/users/:user_id/sessions' component={Sessions} />
-
-              <Route path='/users/:user_id/template' component={TemplateContainer} />
-              <Route path='/users/:user_id/createtemplate' component={FreeFormContainer} />
+            <Route path='/users/:user_id/template' component={TemplateContainer} />
+            <Route path='/users/:user_id/createtemplate' component={FreeFormContainer} />
           </div>
         </MuiThemeProvider>
       </Router>

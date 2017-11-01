@@ -17,7 +17,7 @@ class CalendarContainer extends Component {
                 sessionId: session.id,
                 start: session.started_at,
                 end: session.completed_at,
-                title: session.name  
+                title: session.name || "Weights"
             }))
             this.setState({userSessions})
         })

@@ -149,11 +149,12 @@ class Page6 extends Component {
     handleSave = () => {
 
         const activity = {
+            name: 'Weights',
             reps: this.state.reps,
             weight: this.state.weight,
             motion: this.state.motion.name,
             rest: 0,
-            started: "2017-08-28T14:30:47.000-04:00",
+            started: Date.now,
             stopped: "2017-08-28T14:30:47.000-04:00",
             motion_id: 1,
             equipment_id: 2,
@@ -183,12 +184,13 @@ class Page6 extends Component {
 
 
     handleClick = (e) => {
+        var time = new Date
         const path = this.state.path.split('/').map(section => section === 'templates' ? 'activities' : section).join('/')
         const url = `/api/v1${path}`
 
         if(this.state.tile.checked) {
             const templateData = {
-                session: {name: 'weights'},
+                session: {name: 'weights', started_at: time},
                 liftsets: this.state.templateDetails.liftsets
             }
             return fetch(url, {
@@ -203,7 +205,7 @@ class Page6 extends Component {
         }
 
         const data = {
-             session: {name: "weights"},
+             session: {name: "weights", started_at: time},
              liftsets: this.state.activities
          }
 

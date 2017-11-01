@@ -6,7 +6,7 @@ import StopWatch from './StopWatch.js';
 import '../styles/Stepprocess.css';
 
 const style = {
-  height: '100vh'
+  // height: '100vh'
 }
 
 
@@ -19,7 +19,7 @@ class Stepprocess extends Component {
     }
     this.handleNext = this.handleNext.bind(this)
   }
-    
+
   handleNext = () => {
     console.log(this.state)
     const { stepIndex, click } = this.state
@@ -37,7 +37,7 @@ class Stepprocess extends Component {
 
   render() {
     const {stepIndex} = this.state;
-  
+
     return (
       <div className="stepContainer" style={style}>
         <div style={{maxWidth: 400, maxHeight: 400, margin: 'auto'}}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
-  
+
 const buttonContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -23,34 +23,34 @@ class StopWatch extends Component {
         this.initializeTime()
         // this.createInterval()
     }
-    
+
     initializeTime = () => {
         this.time = 0;
         this.setState({
             currentTime: this.formatTime(this.getTime())
         })
     }
-    
+
       createInterval() {
         this.intervalId = setInterval(this.updateTime, 100);
       }
-    
+
       clearInterval() {
         clearInterval(this.intervalId)
       }
-    
+
       updateTime = () => {
         this.time += 100
         const newTime = this.getTime();
         const formattedTime = this.formatTime(newTime);
-    
+
         this.setState({currentTime: formattedTime})
       }
-    
+
       formatTime = (momentJsObject) => {
         return momentJsObject.format("HH:mm:ss")
       }
-    
+
       getTime = () => {
         return moment.utc(this.time)
       }
@@ -62,33 +62,33 @@ class StopWatch extends Component {
           this.startTime()
         }
       }
-    
+
       startTime() {
         this.createInterval()
         this.toggle()
       }
-    
+
       pauseTime = () => {
         this.clearInterval()
         this.toggle()
       }
-    
+
       resetTime = () => {
         this.initializeTime()
         this.clearInterval()
         this.setState({toggle: false})
       }
-    
+
       toggle = () => {
         this.setState({
           toggle: !this.state.toggle
         })
       }
-    
+
       render(){
         const toggleText = this.state.toggle
-        ? "STOP"
-        : "START";
+        ? "NEXT"
+        : "REST";
 
       return (
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -108,5 +108,5 @@ class StopWatch extends Component {
         )
       }
     }
-    
+
     export default StopWatch

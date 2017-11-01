@@ -11,8 +11,7 @@ import '../styles/Calendar.css'
 BigCalendar.momentLocalizer(moment);
 
 const views={
-  month: true,
-  week: true
+  month: true
 }
 
 const style = {
@@ -24,7 +23,8 @@ const style = {
 }
 
 const calendarContainerStyle = {
-  height: '500px'
+  height: '500px',
+  width: '100%'
 }
 
 const buttonStyle = {
@@ -49,12 +49,12 @@ class Calendar extends Component {
                   }}
               />
             </div>
-            <RaisedButton 
-              label="Start New Workout" 
-              primary={false} 
-              backgroundColor='#EE773E' 
-              labelColor='#fff' 
-              style={buttonStyle} 
+            <RaisedButton
+              label="Start New Workout"
+              primary={false}
+              backgroundColor='#EE773E'
+              labelColor='#fff'
+              style={buttonStyle}
               href={`/users/${this.props.userId}/sessions/pick/new`}
             />
           </div>
