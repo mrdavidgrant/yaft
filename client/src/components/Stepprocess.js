@@ -15,14 +15,22 @@ class Stepprocess extends Component {
     super(props);
     this.state ={
       stepIndex: 0,
-      click: 0,
+      click: 1,
+      start: new Date,
+      stop: new Date
     }
     this.handleNext = this.handleNext.bind(this)
   }
 
-  handleNext = () => {
-    console.log(this.state)
+  handleNext = (liftset) => () => {
     const { stepIndex, click } = this.state
+    console.log(click)
+    if (click % 2 === 0) {
+      this.setState({start: new Date})
+      this.props.setTime(liftset, this.state.start, this.state.stop)
+    } else {
+      this.setState({stop: new Date})
+    }
     if(click === 0) {
       this.setState({click: click + 2})
       return;
@@ -30,8 +38,9 @@ class Stepprocess extends Component {
     setTimeout(() => {
       this.setState({
         click: click + 1,
-        stepIndex: click % 2 === 0 ? stepIndex + 1 : stepIndex
+        stepIndex: click % 2 === 0 ? stepIndex + 1 : stepIndex,
       })
+
     }, 1000)
   };
 
@@ -52,7 +61,7 @@ class Stepprocess extends Component {
               </StepLabel>
               <StepContent>
                   <div>Reps: {liftset.reps}, Weight: {liftset.weight}</div>
-                  <StopWatch onclick={this.handleNext} />
+                  <StopWatch onclick={this.handleNext(liftset)} />
                 </StepContent>
             </Step>)}
           </Stepper>

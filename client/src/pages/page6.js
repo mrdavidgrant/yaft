@@ -190,7 +190,7 @@ class Page6 extends Component {
 
         if(this.state.tile.checked) {
             const templateData = {
-                session: {name: 'weights', started_at: time},
+                session: {name: 'Weights', started_at: time},
                 liftsets: this.state.templateDetails.liftsets
             }
             return fetch(url, {
@@ -205,7 +205,7 @@ class Page6 extends Component {
         }
 
         const data = {
-             session: {name: "weights", started_at: time},
+             session: {name: "Weights", started_at: time},
              liftsets: this.state.activities
          }
 

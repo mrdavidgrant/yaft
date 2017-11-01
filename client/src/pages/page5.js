@@ -7,13 +7,15 @@ class Page5 extends Component {
         console.log(this.props)
       }
 
-    render() {
+        render() {
+
+        const sessionId = this.props.match.params.session_id
         const userId = this.props.match.params.user_id
-        console.log(this.props)
         return (
             <div>
                 <Navbar userId={userId}/>
-                <Startsession liftsets={this.props.location.state} />
+                <Startsession liftsets= {this.props.location.state} sessionId = {sessionId} userId = {userId}
+                />
             </div>
         )
     }
