@@ -39,12 +39,14 @@ class Startsession extends Component {
         session: value.activity,
         liftsets: liftsets
       }
+      console.log(data)
       var request = new Request(`/api/v1/users/${this.props.userId}/activities/${this.props.sessionId}`, {
         method: 'PUT',
         body: JSON.stringify(data)
       })
       fetch(request)
         .then(res => {
+          console.log(res)
           this.setState({redirect: true})
           // return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
         })
@@ -55,9 +57,9 @@ class Startsession extends Component {
   render() {
     const {redirect} = this.state
 
-    if (redirect) {
-      return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
-    }
+    // if (redirect) {
+    //   return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+    // }
 
     return (
       <div>

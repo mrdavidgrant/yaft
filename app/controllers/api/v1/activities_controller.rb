@@ -28,13 +28,13 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def update
-    @activity = Session.find params[:id]
+    @activity = Session.find post_params[:id]
     @activity[:completed_at] = DateTime.now
     puts liftset_params
     if liftset_params.present?
       @update = liftset_params[:liftsets]
       @update.each do |liftset|
-        set = @activity.liftsets.find(liftset[:id])
+        set = Liftset.find(liftset[:id])
         set.update_attributes! liftset
       end
     end
