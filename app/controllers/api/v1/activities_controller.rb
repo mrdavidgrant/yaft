@@ -8,8 +8,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def create
     get_user
-    @activity = @user.sessions.create! post_params.except(:liftsets)
-    puts post_params.except(:liftsets)
+    @activity = @user.sessions.create! post_params[:session]
+    puts post_params[:session]
     # @activity.update_attributes! post_params.except(:liftsets)
     # if post_params[:liftsets].present?
     #   @update = post_params[:liftsets]
