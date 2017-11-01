@@ -500,7 +500,7 @@ template.liftsets.create([
   },
 ])
 
-template = @testy.sessions.create ({name: "MH 20 Min KB", template: true, notes: "For when time is of the essence"})
+template = @testy.sessions.create ({name: "DEMO", template: true, notes: "For when time is of the essence"})
 template.liftsets.create([
   {
     "motion_id":17, "reps":5, "weight":35, "rest":60, "equipment_id":4
@@ -513,37 +513,7 @@ template.liftsets.create([
   },
   {
     "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
-  },
-  {
-    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
-  },
-  {
-    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
-  },
-  {
-    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
-  },
-  {
-    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
-  },
-  {
-    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
-  },
-  {
-    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
-  },
-  {
-    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
-  },
-  {
-    "motion_id":24, "reps":5, "weight":35, "rest":0, "equipment_id":4
-  },
-  {
-    "motion_id":29, "reps":20, "weight":35, "rest":60, "equipment_id":4
-  },
-  {
-    "motion_id":6, "reps":10, "rest":60, "equipment_id":3
-  },
+  }
 ])
 
 

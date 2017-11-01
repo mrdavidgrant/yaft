@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Stepprocess from './Stepprocess.js';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -16,11 +17,13 @@ class Startsession extends Component {
   constructor(props) {
     super(props)
     this.handleSave = this.handleSave.bind(this)
+    this.state = {
+      redirect: false
+    }
   }
 
 
   setTime(liftset, start, stop) {
-    var time = new Date
     liftset.started = start.toJSON()
     liftset.stopped = stop.toJSON()
     liftsets.push(liftset)
@@ -36,11 +39,26 @@ class Startsession extends Component {
         session: value.activity,
         liftsets: liftsets
       }
-      console.log(data)
+      var request = new Request(`/api/v1/users/${this.props.userId}/activities/${this.props.sessionId}`, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+      })
+      fetch(request)
+        .then(res => {
+          this.setState({redirect: true})
+          // return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+        })
+
     })
   }
 
   render() {
+    const {redirect} = this.state
+
+    if (redirect) {
+      return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+    }
+
     return (
       <div>
         <Stepprocess liftsets={this.props.liftsets} setTime = {this.setTime} />

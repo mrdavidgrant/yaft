@@ -24,7 +24,6 @@ class Stepprocess extends Component {
 
   handleNext = (liftset) => () => {
     const { stepIndex, click } = this.state
-    console.log(click)
     if (click % 2 === 0) {
       this.setState({start: new Date})
       this.props.setTime(liftset, this.state.start, this.state.stop)

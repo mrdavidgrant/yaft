@@ -184,7 +184,7 @@ class Page6 extends Component {
 
 
     handleClick = (e) => {
-        var time = new Date
+        var time = new Date()
         const path = this.state.path.split('/').map(section => section === 'templates' ? 'activities' : section).join('/')
         const url = `/api/v1${path}`
 
