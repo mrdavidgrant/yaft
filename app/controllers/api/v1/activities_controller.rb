@@ -63,8 +63,8 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def post_params
-    params.permit(:session).permit(:name, :user_id, :completed_at, :started_at)
     params.permit(:liftsets => [:session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
+    params.require(:session).permit(:name, :user_id, :completed_at, :started_at)
   end
 
 end
