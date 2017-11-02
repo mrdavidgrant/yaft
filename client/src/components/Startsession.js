@@ -49,9 +49,9 @@ class Startsession extends Component {
   render() {
     const {redirect} = this.state
 
-    // if (redirect) {
-    //   return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
-    // }
+    if (redirect) {
+      return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+    }
 
     return (
       <div>
