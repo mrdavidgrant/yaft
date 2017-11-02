@@ -52,7 +52,7 @@ class Startsession extends Component {
         .then(res => res.json())
         .then(value => {
           this.setState({redirect: true})
-          // return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+          return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
         })
 
     })
