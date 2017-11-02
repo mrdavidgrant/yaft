@@ -23,7 +23,7 @@ class Complete extends Component {
                     backgroundColor='#EE773E'
                     labelColor='#fff'
                     style={buttonStyle}
-                    href={`/users/${this.props.userId}/sessions/${this.props.sessionId}`}
+                    href={`/users/${this.props.userId}/sessions/`}
                 />
       </div>
     )
