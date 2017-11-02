@@ -11,7 +11,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     @activity = @user.sessions.create! post_params
     @activity.update_attributes! post_params
     if liftset_params.present?
-      @update = liftset_params
+      @update = liftset_params["liftsets"]
       @update.each do |liftset|
         set = @activity.liftsets.create! liftset
         # set.update_attributes liftset
