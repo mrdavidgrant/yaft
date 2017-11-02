@@ -37,6 +37,9 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     puts @activity
     if liftset_params.present?
       @update = liftset_params
+      puts "**********************"
+      puts @update
+      puts "**********************"
       @update.each do |liftset|
         puts "**********************"
         puts liftset
