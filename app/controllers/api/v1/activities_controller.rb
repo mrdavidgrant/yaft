@@ -8,12 +8,12 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
 
   def create
     get_user
-    @activity = @user.sessions.new name: post_params[:name]
-    @activity.update_attributes post_params.except(:liftsets)
-    if post_params[:liftsets].present?
-      @update = post_params[:liftsets]
+    @activity = @user.sessions.create! post_params
+    @activity.update_attributes! post_params
+    if liftset_params.present?
+      @update = liftset_params["liftsets"]
       @update.each do |liftset|
-        set = @activity.liftsets.create! liftset
+        set = @activity.liftsets.create! liftset.except :id
         # set.update_attributes liftset
       end
     end
@@ -28,12 +28,22 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def update
-    @activity = Session.find params[:id]
+    session = post_params
+    puts "&&&PARAMS"
+    puts post_params
+    puts liftset_params["liftsets"]
+    @activity = Session.find session[:id]
     @activity[:completed_at] = DateTime.now
-    if params[:liftsets].present?
-      @update = post_params[:liftsets]
-      puts post_params[:liftsets]
+    puts @activity
+    if liftset_params.present?
+      @update = liftset_params["liftsets"]
+      puts "**********************"
+      puts @update
+      puts "**********************"
       @update.each do |liftset|
+        puts "**********************"
+        puts liftset
+        puts "**********************"
         set = Liftset.find liftset[:id]
         set.update_attributes! liftset
       end
@@ -62,8 +72,12 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def post_params
-    params.require(:session).permit(:name, :user_id, :completed_at, :started_at)
-    params.permit(:liftsets => [:session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
+
+    params.require(:session).permit(:id, :name, :user_id, :completed_at, :started_at)
+  end
+
+  def liftset_params
+    params.permit(:liftsets => [:id, :session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
   end
 
 end

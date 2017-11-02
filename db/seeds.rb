@@ -85,15 +85,6 @@ shoulders.motions.create([{
 workout = @testy.sessions.create ({name: 'Weights', started_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
 workout.liftsets.create([
   {
-    "motion_id":8, "reps":12, "rest":90, "weight":28, "equipment_id":2, started: '2017-08-28T15:45:32.000-04:00', stopped: '2017-08-28T15:46:32.000-04:00'
-  },
-  {
-    "motion_id":8, "reps":10, "rest":90, "weight":53, "equipment_id":2, started: '2017-08-28T15:48:00.000-04:00', stopped: '2017-08-28T15:48:15.000-04:00'
-  },
-  {
-    "motion_id":8, "reps":8, "rest":90, "weight":78, "equipment_id":2, started: '2017-08-28T15:49:45.000-04:00', stopped: '2017-08-28T15:50:32.000-04:00'
-  },
-  {
     "motion_id":8, "reps":6, "rest":270, "weight":103, "equipment_id":2, started: '2017-08-28T15:52:00.000-04:00', stopped: '2017-08-28T15:53:32.000-04:00'
   },
   {
