@@ -128,133 +128,31 @@ core.motions.create([{
 workout = @testy.sessions.create ({name: 'Weights', started_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
 workout.liftsets.create([
   {
-    "motion_id":1, "reps":12, "rest":90, "weight":50, "equipment_id":2
+    "motion_id":8, "reps":6, "rest":270, "weight":103, "equipment_id":2, started: '2017-08-28T15:52:00.000-04:00', stopped: '2017-08-28T15:53:32.000-04:00'
   },
   {
-    "motion_id":1, "reps":10, "rest":90, "weight":60, "equipment_id":2
+    "motion_id":9, "reps":12, "rest":90, "weight":60, "equipment_id":2, started: '2017-08-28T15:55:32.000-04:00', stopped: '2017-08-28T15:57:32.000-04:00'
   },
   {
-    "motion_id":1, "reps":8, "rest":90, "weight":70, "equipment_id":2
+    "motion_id":9, "reps":10, "rest":90, "weight":70, "equipment_id":2, started: '2017-08-28T15:59:00.000-04:00', stopped: '2017-08-28T16:00:00.000-04:00'
   },
   {
-    "motion_id":1, "reps":6, "rest":90, "weight":85, "equipment_id":2
+    "motion_id":9, "reps":8, "rest":90, "weight":80, "equipment_id":2, started: '2017-08-28T16:01:30.000-04:00', stopped: '2017-08-28T16:02:00.000-04:00'
   },
   {
-    "motion_id":1, "reps":4, "rest":270, "weight":90, "equipment_id":2
+    "motion_id":9, "reps":6, "rest":270, "weight":100, "equipment_id":2, started: '2017-08-28T16:03:30.000-04:00', stopped: '2017-08-28T16:05:32.000-04:00'
   },
   {
-    "motion_id":2, "reps":12, "rest":90, "weight":25, "equipment_id":2
+    "motion_id":10, "reps":12, "rest":90, "weight":77, "equipment_id":2, started: '2017-08-28T16:07:02.000-04:00', stopped: '2017-08-28T16:07:32.000-04:00'
   },
   {
-    "motion_id":2, "reps":10, "rest":90, "weight":35, "equipment_id":2
+    "motion_id":10, "reps":12, "rest":90, "weight":88, "equipment_id":2, started: '2017-08-28T16:09:00.000-04:00', stopped: '2017-08-28T16:09:32.000-04:00'
   },
   {
-    "motion_id":2, "reps":8, "rest":90, "weight":45, "equipment_id":2
+    "motion_id":10, "reps":10, "rest":90, "weight":99, "equipment_id":2, started: '2017-08-28T16:11:02.000-04:00', stopped: '2017-08-28T16:11:32.000-04:00'
   },
   {
-    "motion_id":2, "reps":6, "rest":90, "weight":50, "equipment_id":2
-  },
-  {
-    "motion_id":2, "reps":4, "rest":270, "weight":55, "equipment_id":2
-  },
-  {
-    "motion_id":3, "reps":12, "rest":90, "weight":20, "equipment_id":3
-  },
-  {
-    "motion_id":3, "reps":10, "rest":90, "weight":25, "equipment_id":3
-  },
-  {
-    "motion_id":3, "reps":8, "rest":90, "weight":30, "equipment_id":3
-  },
-  {
-    "motion_id":3, "reps":6, "rest":270, "weight":35, "equipment_id":3
-  },
-  {
-    "motion_id":4, "reps":12, "weight":170, "rest":90
-  },
-  {
-    "motion_id":4, "reps":10, "weight":180, "rest":90
-  },
-  {
-    "motion_id":4, "reps":8, "weight":190, "rest":90
-  },
-  {
-    "motion_id":4, "reps":6, "weight":200, "rest":270
-  },
-  {
-    "motion_id":5, "reps":12, "rest":90, "weight":15, "equipment_id":1
-  },
-  {
-    "motion_id":5, "reps":10, "rest":90, "weight":20, "equipment_id":1
-  },
-  {
-    "motion_id":5, "reps":8, "rest":90, "weight":25, "equipment_id":1
-  },
-  {
-    "motion_id":5, "reps":6, "rest":270, "weight":30, "equipment_id":1
-  },
-  {
-    "motion_id":7, "reps":12, "rest":90, "weight":77, "equipment_id":1
-  },
-  {
-    "motion_id":7, "reps":10, "rest":90, "weight":88, "equipment_id":1
-  },
-  {
-    "motion_id":7, "reps":8, "rest":90, "weight":99, "equipment_id":1
-  },
-  {
-    "motion_id":7, "reps":8, "rest":270, "weight":110, "equipment_id":1
-  },
-  {
-    "motion_id":8, "reps":15, "rest":90, "weight":77, "equipment_id":1
-  },
-  {
-    "motion_id":8, "reps":12, "rest":90, "weight":88, "equipment_id":1
-  },
-  {
-    "motion_id":8, "reps":10, "rest":90, "weight":99, "equipment_id":1
-  },
-  {
-    "motion_id":8, "reps":8, "rest":90, "weight":110, "equipment_id":1
-  },
-  {
-    "motion_id":8, "reps":8, "rest":270, "weight":121, "equipment_id":1
-  },
-  {
-    "motion_id":9, "reps":12, "rest":90, "weight":28, "equipment_id":2
-  },
-  {
-    "motion_id":9, "reps":10, "rest":90, "weight":53, "equipment_id":2
-  },
-  {
-    "motion_id":9, "reps":8, "rest":90, "weight":78, "equipment_id":2
-  },
-  {
-    "motion_id":9, "reps":6, "rest":270, "weight":103, "equipment_id":2
-  },
-  {
-    "motion_id":10, "reps":12, "rest":90, "weight":60, "equipment_id":2
-  },
-  {
-    "motion_id":10, "reps":10, "rest":90, "weight":70, "equipment_id":2
-  },
-  {
-    "motion_id":10, "reps":8, "rest":90, "weight":80, "equipment_id":2
-  },
-  {
-    "motion_id":10, "reps":6, "rest":270, "weight":100, "equipment_id":2
-  },
-  {
-    "motion_id":11, "reps":12, "rest":90, "weight":77, "equipment_id":2
-  },
-  {
-    "motion_id":11, "reps":12, "rest":90, "weight":88, "equipment_id":2
-  },
-  {
-    "motion_id":11, "reps":10, "rest":90, "weight":99, "equipment_id":2
-  },
-  {
-    "motion_id":11, "reps":6, "rest":270, "weight":110, "equipment_id":2
+    "motion_id":10, "reps":6, "weight":110, "equipment_id":2, started: '2017-08-28T16:13:02.000-04:00', stopped: '2017-08-28T16:13:32.000-04:00'
   }
 ])
 
