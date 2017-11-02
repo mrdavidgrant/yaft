@@ -125,34 +125,34 @@ core.motions.create([{
 
 @testy = User.create(display_name: 'David G.', user_id: '24X947', age: 40, avatar: "https://d6y8zfzc2qfsl.cloudfront.net/5BCEC0FC-8CC3-EC4A-DD43-83C2727D8768_profile_100_square.jpg", dob: "1977-06-11", first_name: "David", last_name: "Grant", full_name: "David Grant", gender: 'MALE', height_cm: 188, weight_kg: 95)
 
-workout = @testy.sessions.create ({name: 'Weights', started_at: '2017-08-28T14:30:00.000-04:00', completed_at: '2017-08-28T16:53:00.000-04:00'})
+workout = @testy.sessions.create ({name: 'Weights', started_at: '2017-11-01T14:30:00.000-04:00', completed_at: '2017-11-01T16:53:00.000-04:00'})
 workout.liftsets.create([
   {
-    "motion_id":8, "reps":6, "rest":270, "weight":103, "equipment_id":2, started: '2017-08-28T15:52:00.000-04:00', stopped: '2017-08-28T15:53:32.000-04:00'
+    "motion_id":8, "reps":6, "rest":270, "weight":103, "equipment_id":2, started: '2017-11-01T15:52:00.000-04:00', stopped: '2017-11-01T15:53:32.000-04:00'
   },
   {
-    "motion_id":9, "reps":12, "rest":90, "weight":60, "equipment_id":2, started: '2017-08-28T15:55:32.000-04:00', stopped: '2017-08-28T15:57:32.000-04:00'
+    "motion_id":9, "reps":12, "rest":90, "weight":60, "equipment_id":2, started: '2017-11-01T15:55:32.000-04:00', stopped: '2017-11-01T15:57:32.000-04:00'
   },
   {
-    "motion_id":9, "reps":10, "rest":90, "weight":70, "equipment_id":2, started: '2017-08-28T15:59:00.000-04:00', stopped: '2017-08-28T16:00:00.000-04:00'
+    "motion_id":9, "reps":10, "rest":90, "weight":70, "equipment_id":2, started: '2017-11-01T15:59:00.000-04:00', stopped: '2017-11-01T16:00:00.000-04:00'
   },
   {
-    "motion_id":9, "reps":8, "rest":90, "weight":80, "equipment_id":2, started: '2017-08-28T16:01:30.000-04:00', stopped: '2017-08-28T16:02:00.000-04:00'
+    "motion_id":9, "reps":8, "rest":90, "weight":80, "equipment_id":2, started: '2017-11-01T16:01:30.000-04:00', stopped: '2017-11-01T16:02:00.000-04:00'
   },
   {
-    "motion_id":9, "reps":6, "rest":270, "weight":100, "equipment_id":2, started: '2017-08-28T16:03:30.000-04:00', stopped: '2017-08-28T16:05:32.000-04:00'
+    "motion_id":9, "reps":6, "rest":270, "weight":100, "equipment_id":2, started: '2017-11-01T16:03:30.000-04:00', stopped: '2017-11-01T16:05:32.000-04:00'
   },
   {
-    "motion_id":10, "reps":12, "rest":90, "weight":77, "equipment_id":2, started: '2017-08-28T16:07:02.000-04:00', stopped: '2017-08-28T16:07:32.000-04:00'
+    "motion_id":10, "reps":12, "rest":90, "weight":77, "equipment_id":2, started: '2017-11-01T16:07:02.000-04:00', stopped: '2017-11-01T16:07:32.000-04:00'
   },
   {
-    "motion_id":10, "reps":12, "rest":90, "weight":88, "equipment_id":2, started: '2017-08-28T16:09:00.000-04:00', stopped: '2017-08-28T16:09:32.000-04:00'
+    "motion_id":10, "reps":12, "rest":90, "weight":88, "equipment_id":2, started: '2017-11-01T16:09:00.000-04:00', stopped: '2017-11-01T16:09:32.000-04:00'
   },
   {
-    "motion_id":10, "reps":10, "rest":90, "weight":99, "equipment_id":2, started: '2017-08-28T16:11:02.000-04:00', stopped: '2017-08-28T16:11:32.000-04:00'
+    "motion_id":10, "reps":10, "rest":90, "weight":99, "equipment_id":2, started: '2017-11-01T16:11:02.000-04:00', stopped: '2017-11-01T16:11:32.000-04:00'
   },
   {
-    "motion_id":10, "reps":6, "weight":110, "equipment_id":2, started: '2017-08-28T16:13:02.000-04:00', stopped: '2017-08-28T16:13:32.000-04:00'
+    "motion_id":10, "reps":6, "weight":110, "equipment_id":2, started: '2017-11-01T16:13:02.000-04:00', stopped: '2017-11-01T16:13:32.000-04:00'
   }
 ])
 
