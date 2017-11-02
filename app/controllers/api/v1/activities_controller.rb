@@ -28,7 +28,10 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def update
-    session = post_params[:session]
+    session = post_params
+    puts "&&&PARAMS"
+    puts post_params
+    puts liftset_params
     @activity = Session.find session[:id]
     @activity[:completed_at] = DateTime.now
     puts @activity
