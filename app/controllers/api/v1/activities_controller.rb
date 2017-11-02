@@ -38,7 +38,10 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     if liftset_params.present?
       @update = liftset_params
       @update.each do |liftset|
-        set = Liftset.find liftset[:id]
+        puts "**********************"
+        puts liftset
+        puts "**********************"
+        set = Liftset.find liftset[]
         set.update_attributes! liftset
       end
     end
