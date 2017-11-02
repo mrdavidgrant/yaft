@@ -35,16 +35,22 @@ class Startsession extends Component {
       .then(res => res.json())
       .then(value => {
       value.activity.completed_at = time.toJSON()
-      var data = {
+      const data = {
         session: value.activity,
         liftsets: liftsets
       }
-      var request = new Request(`/api/v1/users/${this.props.userId}/activities/${this.props.sessionId}`, {
+      let request = {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
         method: 'PUT',
         body: JSON.stringify(data)
-      })
-      fetch(request)
-        .then(res => {
+      }
+
+      fetch(`/api/v1/users/${this.props.userId}/activities/${this.props.sessionId}`, request)
+        .then(res => res.json())
+        .then(value => {
           this.setState({redirect: true})
           // return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
         })
@@ -55,9 +61,9 @@ class Startsession extends Component {
   render() {
     const {redirect} = this.state
 
-    if (redirect) {
-      return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
-    }
+    // if (redirect) {
+    //   return <Redirect to = {`/users/${this.props.userId}/sessions/${this.props.sessionId}/complete`} />
+    // }
 
     return (
       <div>
