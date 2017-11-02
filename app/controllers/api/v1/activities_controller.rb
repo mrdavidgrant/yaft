@@ -13,7 +13,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
     if liftset_params.present?
       @update = liftset_params["liftsets"]
       @update.each do |liftset|
-        set = @activity.liftsets.create! liftset.except? :id
+        set = @activity.liftsets.create! liftset.except :id
         # set.update_attributes liftset
       end
     end
