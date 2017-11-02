@@ -44,7 +44,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
         puts "**********************"
         puts liftset
         puts "**********************"
-        set = Liftset.find liftset[]
+        set = Liftset.find liftset[:id]
         set.update_attributes! liftset
       end
     end
@@ -77,7 +77,7 @@ class Api::V1::ActivitiesController < Api::V1::BaseController
   end
 
   def liftset_params
-    params.permit(:liftsets => [:session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
+    params.permit(:liftsets => [:id, :session_id, :started, :stopped, :rest, :reps, :weight, :motion_id, :equipment_id])
   end
 
 end
